@@ -6,6 +6,7 @@ import { ProductSync } from "@/components/product-sync";
 import { CatalogSync } from "@/components/catalog-sync";
 import { DashboardToaster } from "@/components/ui/dashboard-toaster";
 import { StoreDataSync } from "@/components/store-data-sync";
+import { DashboardStateSync } from "@/components/dashboard/dashboard-state-sync";
 
 export default async function DashboardLayout({
   children,
@@ -30,6 +31,7 @@ export default async function DashboardLayout({
       <ProductSync />
       <CatalogSync />
       <StoreDataSync />
+      <DashboardStateSync />
       <DashboardSidebar
         user={{
           name: user.name,

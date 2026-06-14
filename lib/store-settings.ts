@@ -8,6 +8,7 @@
  */
 
 import { db } from "@/lib/db";
+import type { BankDetail, ContactDetail, PaymentMethod } from "@/lib/dashboard-data";
 export interface StoreSettings {
   storeName: string;
   phone: string;
@@ -24,6 +25,9 @@ export interface StoreSettings {
   heroHeading: string;
   heroSubheading: string;
   heroImageUrl: string;
+  contactDetails: ContactDetail[];
+  bankDetails: BankDetail[];
+  paymentMethods: PaymentMethod[];
 }
 
 export const DEFAULT_STORE_SETTINGS: StoreSettings = {
@@ -42,6 +46,20 @@ export const DEFAULT_STORE_SETTINGS: StoreSettings = {
   heroHeading: "",
   heroSubheading: "",
   heroImageUrl: "",
+  contactDetails: [
+    { id: "cd1", type: "phone", label: "Main", value: "+264 85 277 5140", isActive: true },
+    { id: "cd2", type: "whatsapp", label: "Sales", value: "264852775140", isActive: true },
+    { id: "cd3", type: "email", label: "General", value: "sales@desertechnam.com", isActive: true },
+    { id: "cd4", type: "address", label: "Physical", value: "Windhoek, Namibia", isActive: true },
+  ],
+  bankDetails: [
+    { id: "bd1", bankName: "Standard Bank", accountName: "Desert TECHNOLOGIES", accountNumber: "60003162833", branchCode: "082672", isActive: true },
+  ],
+  paymentMethods: [
+    { id: "pm1", name: "Bank Transfer", type: "BankTransfer", details: "Standard Bank", instructions: "Use your order reference as payment reference", isActive: true },
+    { id: "pm2", name: "Cash at Store", type: "Cash", details: "Pay in person at our Windhoek location", isActive: true },
+    { id: "pm3", name: "Phone Transfer (E-Wallet)", type: "PhoneTransfer", details: "Send via mobile money or e-wallet", instructions: "Contact us for the phone number to send to", isActive: true },
+  ],
 };
 
 export function normalizeStoreSettings(data: Partial<StoreSettings>): StoreSettings {
@@ -60,6 +78,9 @@ export function normalizeStoreSettings(data: Partial<StoreSettings>): StoreSetti
       ? threshold
       : DEFAULT_STORE_SETTINGS.lowStockThreshold,
     currency: String(data.currency ?? DEFAULT_STORE_SETTINGS.currency).trim().toUpperCase() || "NAD",
+    contactDetails: Array.isArray(data.contactDetails) ? data.contactDetails : DEFAULT_STORE_SETTINGS.contactDetails,
+    bankDetails: Array.isArray(data.bankDetails) ? data.bankDetails : DEFAULT_STORE_SETTINGS.bankDetails,
+    paymentMethods: Array.isArray(data.paymentMethods) ? data.paymentMethods : DEFAULT_STORE_SETTINGS.paymentMethods,
   };
 }
 

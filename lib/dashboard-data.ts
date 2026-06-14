@@ -408,6 +408,9 @@ export const storeSettings = {
   heroHeading: "Namibia&rsquo;s tech — tested, warranted, and a message away.",
   heroSubheading: "Shop laptops, phones, gaming builds, CCTV, networking and POS gear with clear pricing, tested stock and direct local assistance.",
   heroImageUrl: "/images/DTC-BG.webp",
+  contactDetails: [] as ContactDetail[],
+  bankDetails: [] as BankDetail[],
+  paymentMethods: [] as PaymentMethod[],
 };
 
 export const defaultContactDetails: ContactDetail[] = [

@@ -212,7 +212,12 @@ export default function SettingsPage() {
       const response = await fetch("/api/settings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          contactDetails,
+          bankDetails,
+          paymentMethods,
+        }),
       });
       const data = await response.json();
       if (!response.ok || !data.settings) throw new Error(data.error || "Could not save settings.");

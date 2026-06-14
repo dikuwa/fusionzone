@@ -134,6 +134,7 @@ interface StaffMember {
   id: string;
   name: string;
   email: string;
+  image?: string | null;
   role: UserRole;
   status: UserStatus;
   permissions: string[] | null;
@@ -793,11 +794,13 @@ export function StaffList({ staff, pendingInvitations = [], currentUserRole, onU
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-start gap-4">
                 <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-primary font-bold text-lg">
-                  {member.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")
-                    .toUpperCase()}
+                  {member.image ? (
+                    <img src={member.image} alt={`${member.name} profile`} className="h-full w-full rounded-full object-cover" />
+                  ) : member.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")
+                      .toUpperCase()}
                   <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 border-card bg-card">
                     {getStatusDot(member.status)}
                   </span>

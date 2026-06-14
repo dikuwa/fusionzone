@@ -9,6 +9,32 @@ import { authorizePermission, createAuditLog } from "@/lib/auth-server";
 import { Permissions } from "@/lib/permissions";
 import { z } from "zod";
 
+const contactDetailSchema = z.object({
+  id: z.string(),
+  type: z.enum(["phone", "whatsapp", "email", "address"]),
+  label: z.string(),
+  value: z.string(),
+  isActive: z.boolean(),
+});
+
+const bankDetailSchema = z.object({
+  id: z.string(),
+  bankName: z.string(),
+  accountName: z.string(),
+  accountNumber: z.string(),
+  branchCode: z.string(),
+  isActive: z.boolean(),
+});
+
+const paymentMethodSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  type: z.enum(["BankTransfer", "Cash", "PhoneTransfer", "Card", "Other"]),
+  details: z.string(),
+  instructions: z.string().optional(),
+  isActive: z.boolean(),
+});
+
 const settingsSchema = z.object({
   storeName: z.string().optional(),
   phone: z.string().optional(),
@@ -25,6 +51,9 @@ const settingsSchema = z.object({
   heroHeading: z.string().optional(),
   heroSubheading: z.string().optional(),
   heroImageUrl: z.string().optional(),
+  contactDetails: z.array(contactDetailSchema).max(50).optional(),
+  bankDetails: z.array(bankDetailSchema).max(20).optional(),
+  paymentMethods: z.array(paymentMethodSchema).max(30).optional(),
 });
 
 export async function GET() {

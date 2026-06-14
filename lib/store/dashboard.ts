@@ -52,6 +52,7 @@ interface DashboardState {
   followUps: DashboardFollowUp[];
   notifications: DashboardNotification[];
   quotations: DashboardQuotation[];
+  syncDashboardData: (data: Partial<Pick<DashboardState, "orders" | "customers" | "followUps" | "quotations" | "payments" | "navOrder">>) => void;
   payments: DashboardPayment[];
   contactDetails: ContactDetail[];
   bankDetails: BankDetail[];
@@ -265,22 +266,24 @@ export const useDashboardStore = create<DashboardState>()(
         const settings = { ...s.settings, ...data };
         return {
           settings,
-          contactDetails: [
+          contactDetails: data.contactDetails ?? [
             { id: "settings-phone", type: "phone", label: "Main", value: settings.phone, isActive: Boolean(settings.phone) },
             { id: "settings-whatsapp", type: "whatsapp", label: "Sales", value: settings.whatsapp, isActive: Boolean(settings.whatsapp) },
             { id: "settings-email", type: "email", label: "General", value: settings.email, isActive: Boolean(settings.email) },
             { id: "settings-address", type: "address", label: "Physical", value: settings.address, isActive: Boolean(settings.address) },
           ],
-          bankDetails: settings.bankName ? [{
+          bankDetails: data.bankDetails ?? (settings.bankName ? [{
             id: "settings-bank",
             bankName: settings.bankName,
             accountName: settings.bankAccountName,
             accountNumber: settings.bankAccountNumber,
             branchCode: settings.bankBranchCode,
             isActive: true,
-          }] : [],
+          }] : []),
+          paymentMethods: data.paymentMethods ?? s.paymentMethods,
         };
       }),
+      syncDashboardData: (data) => set(data),
       updateSettings: (data) => {
         const changedFields = Object.keys(data).join(", ");
         set((s) => {
