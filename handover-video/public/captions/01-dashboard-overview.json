@@ -1,0 +1,10 @@
+[
+  {"text":"Dashboard Overview","startMs":0,"endMs":7000,"timestampMs":null,"confidence":null},
+  {"text":"Sign in with your own account and never share the Owner login","startMs":7000,"endMs":26000,"timestampMs":null,"confidence":null},
+  {"text":"Use the dashboard home to review current store operations","startMs":26000,"endMs":52000,"timestampMs":null,"confidence":null},
+  {"text":"The left sidebar provides access to every important business section","startMs":52000,"endMs":76000,"timestampMs":null,"confidence":null},
+  {"text":"Products, categories, brands, and promotions control the customer-facing catalogue","startMs":76000,"endMs":115000,"timestampMs":null,"confidence":null},
+  {"text":"Orders, receipts, quotations, and payments support the sales workflow","startMs":115000,"endMs":145000,"timestampMs":null,"confidence":null},
+  {"text":"Customers, users, notifications, follow-ups, settings, and logs support daily management","startMs":145000,"endMs":190000,"timestampMs":null,"confidence":null},
+  {"text":"Review, update, and confirm the final customer-facing result","startMs":190000,"endMs":210000,"timestampMs":null,"confidence":null}
+]

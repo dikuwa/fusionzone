@@ -1,0 +1,33 @@
+Welcome to the Desert Technology dashboard overview.
+
+This video explains how to sign in, understand the dashboard home, and find each important business section. It is an orientation only. The following videos explain each workflow in detail.
+
+Open the Desert Technology staff sign-in page and use the dashboard account assigned to you. Every person should have their own account. The Owner login should never be shared, and temporary training accounts should be removed or disabled after handover.
+
+After signing in, the Dashboard page is the main starting point. The overview cards provide a quick view of store operations, including new orders, low-stock items, pending follow-ups, unread notifications, total customers, and collected revenue.
+
+Below the overview cards, recent orders and notifications appear when activity is available. This helps the owner notice work that may require attention without opening every section.
+
+Use the left sidebar to move between dashboard areas. The Dashboard link always returns to the main overview.
+
+Products is used to manage the public catalogue. This includes product names, descriptions, pricing, discounted pricing where applicable, stock quantity, reorder limits, warranty information, images, condition, and website visibility.
+
+Categories and Brands organise products and support customer-facing filters. Keep names consistent, and avoid unnecessary categories or brands that do not help customers browse the catalogue.
+
+Orders records customer sales and purchase activity. Receipts, Quotations, Payments, and related document areas support the wider sales workflow. These sections help the business check totals, record payment status, track outstanding balances, and prepare downloadable documents.
+
+Promotions controls customer-facing offers. Promotions may support products or services, and important promotions can be marked as featured so they appear more prominently on the public website.
+
+Customers stores the information used for orders, quotations, receipts, and follow-ups. Protect customer names and contact information, and keep records accurate. Follow-ups help the team remember calls, quotation updates, payment reminders, and service responses.
+
+Notifications highlights recent system activity and operational alerts. Stock Notification Requests records customers who asked to be notified when an unavailable product returns.
+
+Users is where the Owner or permitted Admin manages dashboard access. Owner has full access, Admin supports daily management, and Staff has limited operational access. Invite each user with their own account, assign the appropriate role, and do not share passwords.
+
+Audit Log helps the Owner review important dashboard actions. It provides a readable record of changes across the system and supports accountability.
+
+Settings contains important store and profile information, including business details, contact information, branding, and receipt prefix behaviour. Technical, security-sensitive, or integration settings should only be changed with confirmed support.
+
+A practical daily routine is to begin on the Dashboard page, review notifications and low-stock items, complete operational work, and then confirm the result on the public website or downloaded document.
+
+This completes the dashboard overview. The next training video explains how to manage products step by step.

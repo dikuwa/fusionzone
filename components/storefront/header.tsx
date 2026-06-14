@@ -322,13 +322,15 @@ export function StorefrontHeader() {
 
       <div className="hidden md:block border-t border-border bg-card relative">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center justify-center gap-8 py-0">
+          <nav
+            ref={megaMenuRef}
+            className="relative flex items-center justify-center gap-8 py-0"
+            onMouseLeave={() => setMegaMenuOpen(false)}
+          >
             {/* Shop Link with Mega Menu Trigger */}
             <div
-              ref={megaMenuRef}
               className="relative py-3"
               onMouseEnter={() => setMegaMenuOpen(true)}
-              onMouseLeave={() => setMegaMenuOpen(false)}
             >
               <button
                 type="button"
@@ -347,12 +349,46 @@ export function StorefrontHeader() {
                 <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", megaMenuOpen && "rotate-180")} />
               </button>
 
-              {/* Mega Menu Dropdown */}
-              {megaMenuOpen && (
-                <div
-                  id="storefront-shop-menu"
-                  className="absolute left-1/2 z-50 mt-0.5 w-[95vw] max-w-4xl lg:max-w-6xl -translate-x-1/2 rounded-xl border border-border bg-background p-4 sm:p-6 shadow-xl"
-                >
+            </div>
+
+            {/* Other nav links */}
+            <Link
+              href="/promotions"
+              onMouseEnter={() => setMegaMenuOpen(false)}
+              className={cn(
+                "relative whitespace-nowrap px-3 py-3 text-sm font-medium transition-colors",
+                pathname === "/promotions" ? "text-primary" : "text-muted-foreground hover:text-foreground"
+              )}
+            >
+              Promotions
+            </Link>
+            <Link
+              href="/services"
+              onMouseEnter={() => setMegaMenuOpen(false)}
+              className={cn(
+                "relative whitespace-nowrap px-3 py-3 text-sm font-medium transition-colors",
+                pathname === "/services" ? "text-primary" : "text-muted-foreground hover:text-foreground"
+              )}
+            >
+              Our Services
+            </Link>
+            <Link
+              href="/contact"
+              onMouseEnter={() => setMegaMenuOpen(false)}
+              className={cn(
+                "relative whitespace-nowrap px-3 py-3 text-sm font-medium transition-colors",
+                pathname === "/contact" ? "text-primary" : "text-muted-foreground hover:text-foreground"
+              )}
+            >
+              Contact
+            </Link>
+
+            {/* Mega Menu Dropdown */}
+            {megaMenuOpen && (
+              <div
+                id="storefront-shop-menu"
+                className="absolute left-1/2 top-full z-50 mt-0.5 w-[calc(100vw-2rem)] max-w-4xl -translate-x-1/2 rounded-xl border border-border bg-background p-4 shadow-xl sm:p-6 lg:max-w-6xl"
+              >
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 text-left">
                     {/* Column 1: Shop All */}
                     <div>
@@ -485,38 +521,8 @@ export function StorefrontHeader() {
                       </div>
                     )}
                   </div>
-                </div>
-              )}
-            </div>
-
-            {/* Other nav links */}
-            <Link
-              href="/promotions"
-              className={cn(
-                "relative whitespace-nowrap px-3 py-3 text-sm font-medium transition-colors",
-                pathname === "/promotions" ? "text-primary" : "text-muted-foreground hover:text-foreground"
-              )}
-            >
-              Promotions
-            </Link>
-            <Link
-              href="/services"
-              className={cn(
-                "relative whitespace-nowrap px-3 py-3 text-sm font-medium transition-colors",
-                pathname === "/services" ? "text-primary" : "text-muted-foreground hover:text-foreground"
-              )}
-            >
-              Our Services
-            </Link>
-            <Link
-              href="/contact"
-              className={cn(
-                "relative whitespace-nowrap px-3 py-3 text-sm font-medium transition-colors",
-                pathname === "/contact" ? "text-primary" : "text-muted-foreground hover:text-foreground"
-              )}
-            >
-              Contact
-            </Link>
+              </div>
+            )}
           </nav>
         </div>
       </div>

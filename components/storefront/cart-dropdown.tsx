@@ -43,7 +43,7 @@ export function CartDropdown() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 z-50 w-[360px] rounded-xl border border-border bg-card shadow-xl">
+        <div className="fixed left-1/2 top-[6.75rem] z-50 w-[calc(100vw-2rem)] max-w-[360px] -translate-x-1/2 rounded-xl border border-border bg-card shadow-xl sm:absolute sm:left-auto sm:right-0 sm:top-full sm:mt-2 sm:w-[360px] sm:translate-x-0">
           <div className="p-4 border-b border-border">
             <div className="flex items-center justify-between">
               <p className="text-sm font-semibold text-foreground">Cart ({itemCount})</p>
