@@ -7,6 +7,7 @@ import { CatalogSync } from "@/components/catalog-sync";
 import { DashboardToaster } from "@/components/ui/dashboard-toaster";
 import { StoreDataSync } from "@/components/store-data-sync";
 import { DashboardStateSync } from "@/components/dashboard/dashboard-state-sync";
+import { ForcePasswordChange } from "@/components/auth/force-password-change";
 
 export default async function DashboardLayout({
   children,
@@ -20,9 +21,10 @@ export default async function DashboardLayout({
     redirect("/login");
   }
 
-  // Redirect users with temporary passwords to settings page to change password
+  // Keep first-login password changes outside the normal dashboard UI so this
+  // works for every role and cannot redirect-loop on the settings route.
   if (user.mustChangePassword) {
-    redirect("/dashboard/settings?forceChange=true");
+    return <ForcePasswordChange userName={user.name} />;
   }
 
   return (
