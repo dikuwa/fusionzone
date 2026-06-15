@@ -139,7 +139,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <ProductImage
           src={product.imageUrl}
           alt={product.name}
-          className="transition-transform duration-300 group-hover:scale-105"
+          className="object-contain p-3 transition-transform duration-300 group-hover:scale-[1.03]"
           showFallbackText={true}
           fallbackIconSize={24}
         />
