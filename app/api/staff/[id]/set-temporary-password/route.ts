@@ -10,6 +10,7 @@ import { requirePermission, canManageUser, revokeAllUserSessions, createAuditLog
 import { db } from "@/lib/db";
 import { Permissions } from "@/lib/permissions";
 import bcrypt from "bcryptjs";
+import { PASSWORD_REUSE_ERROR, passwordMatchesHash } from "@/lib/password-policy";
 
 const setPasswordSchema = z.object({
   password: z.string().min(10).max(128),
@@ -53,6 +54,14 @@ export async function POST(
     }
 
     const { password } = result.data;
+
+    const existingCredential = await db.account.findFirst({
+      where: { userId: id, providerId: "credential" },
+      select: { password: true },
+    });
+    if (await passwordMatchesHash(password, existingCredential?.password)) {
+      return NextResponse.json({ error: PASSWORD_REUSE_ERROR }, { status: 400 });
+    }
 
     // Hash the password
     const passwordHash = await bcrypt.hash(password, 12);

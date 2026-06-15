@@ -11,6 +11,7 @@ import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 import { UserRole, UserStatus } from "@/lib/enums";
 import { sendPasswordResetEmail } from "@/lib/email";
+import { PASSWORD_REUSE_ERROR } from "@/lib/password-policy";
 
 const productionUrl = "https://desertechnam.vercel.app";
 const baseURL = process.env.BETTER_AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || (typeof window !== "undefined" ? window.location.origin : productionUrl);
@@ -160,6 +161,15 @@ export const auth = betterAuth({
 
   hooks: {
     before: createAuthMiddleware(async (ctx) => {
+      if (
+        ctx.path === "/change-password"
+        && ctx.body?.currentPassword
+        && ctx.body?.newPassword
+        && ctx.body.currentPassword === ctx.body.newPassword
+      ) {
+        throw new APIError("BAD_REQUEST", { message: PASSWORD_REUSE_ERROR });
+      }
+
       if (ctx.path !== "/sign-in/email" || !db || !ctx.body?.email) return;
 
       const email = String(ctx.body.email).toLowerCase().trim();

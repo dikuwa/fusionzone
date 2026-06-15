@@ -7,6 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { resetPassword, validatePasswordResetToken } from "@/lib/auth-server";
 import { checkRateLimit, getClientIP } from "@/lib/rate-limit";
+import { PASSWORD_REUSE_ERROR } from "@/lib/password-policy";
 
 const resetSchema = z.object({
   token: z.string().min(10, "Invalid token"),
@@ -63,6 +64,9 @@ export async function POST(req: NextRequest) {
           { error: "Invalid or expired reset token" },
           { status: 400 }
         );
+      }
+      if (error.message === PASSWORD_REUSE_ERROR) {
+        return NextResponse.json({ error: PASSWORD_REUSE_ERROR }, { status: 400 });
       }
     }
 

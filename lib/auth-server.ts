@@ -12,6 +12,7 @@ import { UserRole, UserStatus, InvitationStatus, normalizeUserRole, normalizeUse
 import type { Prisma } from "@/lib/generated/prisma/client";
 import type { Permission } from "@/lib/permissions";
 import { hasPermission } from "@/lib/permissions";
+import { PASSWORD_REUSE_ERROR, passwordMatchesHash } from "@/lib/password-policy";
 
 // ============== SESSION MANAGEMENT ==============
 
@@ -599,6 +600,17 @@ export async function resetPassword(params: {
     throw new Error("Invalid or expired reset token");
   }
 
+  const credential = await db.account.findFirst({
+    where: {
+      user: { email: reset.email },
+      providerId: "credential",
+    },
+    select: { password: true },
+  });
+  if (await passwordMatchesHash(newPassword, credential?.password)) {
+    throw new Error(PASSWORD_REUSE_ERROR);
+  }
+
   // Hash new password
   const bcrypt = await import("bcryptjs");
   const passwordHash = await bcrypt.hash(newPassword, 12);
@@ -625,6 +637,10 @@ export async function resetPassword(params: {
     select: { id: true },
   });
   if (user) {
+    await db.user.update({
+      where: { id: user.id },
+      data: { mustChangePassword: false, passwordChangedAt: new Date() },
+    });
     await db.session.deleteMany({ where: { userId: user.id } });
   }
 

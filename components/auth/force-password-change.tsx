@@ -24,6 +24,10 @@ export function ForcePasswordChange({ userName }: { userName: string }) {
       setError("New passwords do not match.");
       return;
     }
+    if (form.currentPassword === form.newPassword) {
+      setError("New password must be different from the current password.");
+      return;
+    }
 
     setSaving(true);
     try {
