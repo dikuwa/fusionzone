@@ -134,7 +134,7 @@ export default function ProductsPage() {
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gray-50 to-gray-100 border border-border overflow-hidden flex-shrink-0">
-                      <ProductImage src={product.imageUrl} alt={product.name} className="object-contain p-0.5" showFallbackText={false} />
+                      <ProductImage src={product.imageUrl} alt={product.name} showFallbackText={false} />
                     </div>
                     <div>
                       <Link href={`/dashboard/products/${product.id}/edit`} className="text-sm font-medium text-foreground hover:text-primary transition-colors">{product.name}</Link>

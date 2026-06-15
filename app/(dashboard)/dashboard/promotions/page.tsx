@@ -143,8 +143,8 @@ function SortablePromotionCard({
         </div>
       ) : (
         <>
-          <div className="relative aspect-[16/8] overflow-hidden rounded-t-xl bg-muted">
-            <ProductImage src={promo.imageUrl} alt={promo.title} />
+          <div className="relative flex aspect-[16/8] items-center justify-center overflow-hidden rounded-t-xl bg-muted/25 p-3">
+            <ProductImage src={promo.imageUrl} alt={promo.title} className="object-contain" />
             <button
               {...attributes}
               {...listeners}
