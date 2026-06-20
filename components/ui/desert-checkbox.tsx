@@ -10,11 +10,11 @@ export interface DesertCheckboxProps extends Omit<InputHTMLAttributes<HTMLInputE
 }
 
 /**
- * DesertTech styled checkbox component
+ * FusionZone styled checkbox component
  * 
  * - Unchecked: light background, subtle border
- * - Checked: orange background, white check
- * - Focused: visible orange-tinted focus ring
+ * - Checked: primary background, white check
+ * - Focused: visible primary-tinted focus ring
  * - Disabled: muted appearance
  *
  * Uses React state for the check mark visibility rather than CSS peer selectors,

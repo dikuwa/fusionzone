@@ -4,8 +4,8 @@ import { getStoreSettings } from "@/lib/store-settings";
 
 export default async function PrivacyPage() {
   const settings = await getStoreSettings();
-  const phoneNumber = settings.phone || "+264852775140";
-  const storeEmail = settings.email || "sales@desertechnam.com";
+  const phoneNumber = settings.phone || "+264000000000";
+  const storeEmail = settings.email || "sales@fusionzone.example";
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
       <Link
@@ -30,7 +30,7 @@ export default async function PrivacyPage() {
         <section>
           <h2 className="text-lg font-semibold text-foreground">1. Information We Collect</h2>
           <p className="leading-relaxed">
-            Desert Technology Consultant collects information you provide directly, such as your name,
+            FusionZone collects information you provide directly, such as your name,
             phone number, email address, and any details you share through our contact forms, WhatsApp
             conversations, or phone calls. We also collect basic browsing information through standard
             web server logs.

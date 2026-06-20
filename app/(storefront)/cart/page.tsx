@@ -27,8 +27,8 @@ export default function CartPage() {
   const subtotal = getSubtotal();
   const itemCount = items.reduce((sum, i) => sum + i.quantity, 0);
 
-  const whatsappNumber = settings.whatsapp || "264852775140";
-  const phoneNumber = settings.phone || "+264852775140";
+  const whatsappNumber = settings.whatsapp || "264000000000";
+  const phoneNumber = settings.phone || "+264000000000";
 
   const cartWhatsAppMessage = encodeURIComponent(
     `Hi, I'd like to enquire about the following items:\n\n${items.map((i) => `- ${i.name} x${i.quantity} (${formatNAD(i.priceCents * i.quantity)})`).join("\n")}\n\nTotal: ${formatNAD(subtotal)}`,

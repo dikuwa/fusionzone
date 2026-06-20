@@ -19,18 +19,18 @@ export function StorefrontFooter() {
   const activePayments = paymentMethods.filter((p) => p.isActive);
 
   return (
-    <footer className="bg-[#0d41e1] text-white">
+    <footer className="bg-[#0d41e2] text-white">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5">
               <img
-                src="/images/desert-tech-logo.svg"
-                alt="Desert Tech"
+                src="/images/fusionzone-mark.svg"
+                alt="FusionZone"
                 className="h-8 w-auto brightness-0 invert"
               />
-              <span className="text-lg font-bold">DesertTech</span>
+              <span className="text-lg font-bold">FusionZone</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-white/70">
               Namibia&apos;s trusted source for new, pre-owned, and refurbished technology products — laptops, phones, gaming, CCTV, networking, POS & more.
@@ -154,7 +154,7 @@ export function StorefrontFooter() {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/40">
-            <p>&copy; {new Date().getFullYear()} Desert Technology Consultant. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} FusionZone. All rights reserved.</p>
             <div className="flex items-center gap-4">
               <Link href="/privacy" className="hover:text-white/60 transition-colors">Privacy Policy</Link>
               <span>|</span>

@@ -120,7 +120,7 @@ export default function PromotionsPage() {
                   </p>
                   <div className="mt-4 flex flex-wrap items-center gap-2">
                     <a
-                      href={buildWhatsAppUrl(settings.whatsapp || "264852775140", `Hi, I'm interested in this promotion: ${promo.title}.`)}
+                      href={buildWhatsAppUrl(settings.whatsapp || "264000000000", `Hi, I'm interested in this promotion: ${promo.title}.`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
@@ -130,7 +130,7 @@ export default function PromotionsPage() {
                       Enquire
                     </a>
                     <a
-                      href={`tel:${settings.phone || "+264852775140"}`}
+                      href={`tel:${settings.phone || "+264000000000"}`}
                       onClick={(e) => e.stopPropagation()}
                       className="inline-flex items-center gap-1 rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-foreground hover:bg-muted transition-colors"
                     >
@@ -204,7 +204,7 @@ export default function PromotionsPage() {
                   </p>
                   <div className="mt-4 flex flex-wrap items-center gap-2">
                     <a
-                      href={buildWhatsAppUrl(settings.whatsapp || "264852775140", `Hi, I'm interested in this promotion: ${promo.title}.`)}
+                      href={buildWhatsAppUrl(settings.whatsapp || "264000000000", `Hi, I'm interested in this promotion: ${promo.title}.`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
@@ -214,7 +214,7 @@ export default function PromotionsPage() {
                       Enquire
                     </a>
                     <a
-                      href={`tel:${settings.phone || "+264852775140"}`}
+                      href={`tel:${settings.phone || "+264000000000"}`}
                       onClick={(e) => e.stopPropagation()}
                       className="inline-flex items-center gap-1 rounded-lg border border-border px-2.5 py-1.5 text-[11px] font-medium text-foreground hover:bg-muted transition-colors"
                     >

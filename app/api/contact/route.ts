@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
 
     // Build the email content
     const storeSettings = await getStoreSettings();
-    const businessEmail = storeSettings.email || process.env.BUSINESS_EMAIL || "sales@desertechnam.com";
+    const businessEmail = storeSettings.email || process.env.BUSINESS_EMAIL || "sales@fusionzone.example";
     const subjectLine = subject
       ? `New Contact Form Enquiry: ${subject}`
       : `New Contact Form Enquiry from ${fullName}`;
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
   <style>
     body { font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #111; background: #f7f7f7; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 0 auto; background: #fff; }
-    .header { background: #f68923; padding: 30px; text-align: center; }
+    .header { background: #0d41e2; padding: 30px; text-align: center; }
     .header h1 { color: #fff; margin: 0; font-size: 22px; }
     .content { padding: 30px; }
     .field { margin-bottom: 16px; }
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
 <body>
   <div class="container">
     <div class="header">
-      <h1>Desert Technology Consultant</h1>
+      <h1>FusionZone</h1>
     </div>
     <div class="content">
       <h2 style="margin-top:0;">New Contact Form Enquiry</h2>
@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
       </div>
     </div>
     <div class="footer">
-      <p>Desert Technology Consultant | Namibia</p>
+      <p>FusionZone | Namibia</p>
     </div>
   </div>
 </body>

@@ -13,7 +13,7 @@ import { useDashboardStore } from "@/lib/store/dashboard";
 
 export default function ForgotPasswordPage() {
   const settings = useDashboardStore((s) => s.settings);
-  const storeName = settings?.storeName || "Desert Technology Consultant";
+  const storeName = settings?.storeName || "FusionZone";
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -91,7 +91,7 @@ export default function ForgotPasswordPage() {
           <div className="mb-8 text-center">
             <div className="mb-5 flex justify-center">
               <Image
-                src="/images/desertech-auth-logo.svg"
+                src="/images/fusionzone-mark.svg"
                 alt={storeName}
                 width={92}
                 height={80}

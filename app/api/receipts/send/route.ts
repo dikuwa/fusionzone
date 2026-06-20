@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
     // Send via Resend with PDF attachment
     const result = await sendEmailWithAttachment({
       to: customerEmail,
-      subject: `Receipt ${documentNumber} — Desert Technology`,
+      subject: `Receipt ${documentNumber} — FusionZone`,
       html,
       attachments: [
         {

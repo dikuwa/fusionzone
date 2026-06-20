@@ -144,10 +144,10 @@ export function PageTransitionProvider({
             >
               <div className="flex items-baseline gap-0.5 select-none">
                 <span className="text-2xl font-bold tracking-tight text-foreground">
-                  Desert
+                  Fusion
                 </span>
                 <span className="text-2xl font-bold tracking-tight text-primary">
-                  Tech
+                  Zone
                 </span>
               </div>
               <div className="h-1 w-32 overflow-hidden rounded-full bg-muted">

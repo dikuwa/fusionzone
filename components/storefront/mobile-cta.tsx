@@ -8,7 +8,7 @@ import { useDashboardStore } from "@/lib/store/dashboard";
 
 export function MobileStickyCTA() {
   const settings = useDashboardStore((s) => s.settings);
-  const phone = settings.phone || "+264852775140";
+  const phone = settings.phone || "+264000000000";
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[70] border-t border-border bg-background lg:hidden">
       <div className="flex items-center gap-2 px-4 py-2">

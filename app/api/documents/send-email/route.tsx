@@ -82,7 +82,7 @@ const requestSchema = z.object({
 
 function loadPdfLogo(): string | null {
   try {
-    const logoPath = path.join(process.cwd(), "public", "images", "deserttech-logo-pdf.png");
+    const logoPath = path.join(process.cwd(), "public", "images", "fusionzone-logo-pdf.png");
     return `data:image/png;base64,${readFileSync(logoPath).toString("base64")}`;
   } catch {
     return null;
@@ -216,7 +216,7 @@ export async function POST(request: NextRequest) {
   <style>
     body { font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #111; background: #f7f7f7; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 0 auto; background: #fff; }
-    .header { background: #f68923; padding: 40px 30px; text-align: center; }
+    .header { background: #0d41e2; padding: 40px 30px; text-align: center; }
     .header h1 { color: #fff; margin: 0; font-size: 24px; font-weight: 700; }
     .content { padding: 40px 30px; }
     .content h2 { color: #111; font-size: 20px; margin-top: 0; }
@@ -227,7 +227,7 @@ export async function POST(request: NextRequest) {
 <body>
   <div class="container">
     <div class="header">
-      <h1>Desert Technology Consultant</h1>
+      <h1>FusionZone</h1>
     </div>
     <div class="content">
       ${recipientName ? `<h2>Hi ${recipientName},</h2>` : ""}
@@ -236,13 +236,13 @@ export async function POST(request: NextRequest) {
       ${shareUrl ? `
       <div class="link-box">
         <p style="margin: 0 0 8px; font-size: 13px; color: #6f6f6f;">You can also view it online:</p>
-        <a href="${shareUrl}" style="color: #f68923; font-size: 14px;">${shareUrl}</a>
+        <a href="${shareUrl}" style="color: #0d41e2; font-size: 14px;">${shareUrl}</a>
       </div>
       ` : ""}
-      <p style="color: #6f6f6f; font-size: 13px;">Thank you for choosing Desert Technology!</p>
+      <p style="color: #6f6f6f; font-size: 13px;">Thank you for choosing FusionZone!</p>
     </div>
     <div class="footer">
-      <p>Desert Technology Consultant | Namibia</p>
+      <p>FusionZone | Namibia</p>
     </div>
   </div>
 </body>
@@ -257,7 +257,7 @@ Please find your ${documentType === "receipt" ? "receipt" : "quotation"} attache
 ${messageBody || ""}
 ${shareUrl ? `\nView online: ${shareUrl}` : ""}
 
-Thank you for choosing Desert Technology!
+Thank you for choosing FusionZone!
     `.trim();
 
     // Send email with PDF attachment via Resend

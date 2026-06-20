@@ -53,7 +53,7 @@ function SectionCard({
   );
 }
 
-// Section header with icon - using original icons with orange accent
+// Section header with icon using the primary accent
 function SectionHeader({ 
   icon: Icon, 
   title,

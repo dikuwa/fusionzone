@@ -178,9 +178,9 @@ async function main() {
   }
 
   console.log("\n✅ Database seeded successfully!");
-  console.log("   Owner login: owner@deserttech.com");
-  console.log("   Admin login: admin@deserttech.com");
-  console.log("   Staff login: staff@deserttech.com");
+  console.log("   Owner login: owner@fusionzone.example");
+  console.log("   Admin login: admin@fusionzone.example");
+  console.log("   Staff login: staff@fusionzone.example");
 }
 
 main()

@@ -75,7 +75,7 @@ export function DocumentPublicView({
     (totalPaidCents != null && balanceDueCents != null && totalPaidCents >= total);
 
   const storeSettings = useDashboardStore((s) => s.settings);
-  const BUSINESS_WHATSAPP = storeSettings.whatsapp || "264852775140";
+  const BUSINESS_WHATSAPP = storeSettings.whatsapp || "264000000000";
 
   const [pdfLoading, setPdfLoading] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -115,7 +115,7 @@ export function DocumentPublicView({
   };
 
   const handleWhatsApp = () => {
-    const msg = `Here is your ${typeLabel.toLowerCase()} ${documentNumber} from Desert Technology.\n\nView online: ${shareUrl}`;
+    const msg = `Here is your ${typeLabel.toLowerCase()} ${documentNumber} from FusionZone.\n\nView online: ${shareUrl}`;
     const formattedPhone = formatWhatsAppPhone(BUSINESS_WHATSAPP);
     const url = buildWhatsAppUrl(formattedPhone, msg);
     const a = document.createElement("a");
@@ -133,7 +133,7 @@ export function DocumentPublicView({
           <div className="flex items-center gap-3">
             <img
               src="/images/receipt-icon.svg"
-              alt="Desert Technology"
+              alt="FusionZone"
               className="h-9 w-auto"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = "none";
@@ -141,7 +141,7 @@ export function DocumentPublicView({
             />
             <div>
               <h1 className="text-base font-bold text-foreground">
-                Desert Technology
+                FusionZone
               </h1>
               <p className="text-[10px] text-muted-foreground">
                 Namibia&rsquo;s trusted tech supplier

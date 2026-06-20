@@ -1,5 +1,5 @@
 {
-  "name": "desert-tech",
+  "name": "fusionzone",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,10 +9,11 @@
     "lint": "next lint",
     "postinstall": "prisma generate --config=prisma.config.ts 2>/dev/null || true",
     "db:generate": "prisma generate",
-    "db:push": "prisma db push --config=prisma.config.ts",
-    "db:seed": "tsx prisma/seed.ts",
+    "db:push": "tsx scripts/assert-safe-database.ts --required && prisma db push --config=prisma.config.ts",
+    "db:migrate": "tsx scripts/assert-safe-database.ts --required && prisma migrate deploy --config=prisma.config.ts",
+    "db:seed": "tsx scripts/assert-safe-database.ts --required && tsx prisma/seed.ts",
     "users:bootstrap": "tsx scripts/bootstrap-system-users.ts",
-    "db:reset": "prisma db push --force-reset --config=prisma.config.ts && tsx prisma/seed.ts",
+    "db:reset": "tsx scripts/assert-safe-database.ts --required && prisma db push --force-reset --config=prisma.config.ts && tsx prisma/seed.ts",
     "db:studio": "prisma studio --config=prisma.config.ts",
     "sku:repair": "tsx scripts/repair-product-sku-prefixes.ts",
     "sku:repair:apply": "tsx scripts/repair-product-sku-prefixes.ts --apply"

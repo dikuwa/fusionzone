@@ -19,7 +19,7 @@ export default function InviteAcceptPage() {
   const router = useRouter();
   const code = params.code as string;
   const settings = useDashboardStore((s) => s.settings);
-  const storeName = settings?.storeName || "Desert Technology Consultant";
+  const storeName = settings?.storeName || "FusionZone";
 
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");

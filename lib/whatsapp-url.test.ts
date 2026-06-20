@@ -7,23 +7,23 @@ import {
 
 describe("formatWhatsAppPhone", () => {
   it("strips spaces and keeps digits from Namibia format", () => {
-    expect(formatWhatsAppPhone("085 277 5140")).toBe("264852775140");
+    expect(formatWhatsAppPhone("081 000 0000")).toBe("264810000000");
   });
 
   it("strips plus sign from international format", () => {
-    expect(formatWhatsAppPhone("+264 85 277 5140")).toBe("264852775140");
+    expect(formatWhatsAppPhone("+264 81 000 0000")).toBe("264810000000");
   });
 
   it("strips brackets and dashes", () => {
-    expect(formatWhatsAppPhone("+264 (85) 277-5140")).toBe("264852775140");
+    expect(formatWhatsAppPhone("+264 (81) 000-0000")).toBe("264810000000");
   });
 
   it("handles already-clean number with 264 prefix", () => {
-    expect(formatWhatsAppPhone("264852775140")).toBe("264852775140");
+    expect(formatWhatsAppPhone("264810000000")).toBe("264810000000");
   });
 
   it("replaces leading 0 with 264", () => {
-    expect(formatWhatsAppPhone("0852775140")).toBe("264852775140");
+    expect(formatWhatsAppPhone("0810000000")).toBe("264810000000");
   });
 
   it("preserves number that starts with 264", () => {
@@ -45,24 +45,24 @@ describe("formatWhatsAppPhone", () => {
 
 describe("buildWhatsAppUrl", () => {
   it("generates wa.me URL without message", () => {
-    const url = buildWhatsAppUrl("085 277 5140");
-    expect(url).toBe("https://wa.me/264852775140");
+    const url = buildWhatsAppUrl("081 000 0000");
+    expect(url).toBe("https://wa.me/264810000000");
   });
 
   it("generates wa.me URL with message", () => {
-    const url = buildWhatsAppUrl("085 277 5140", "Hello");
-    expect(url).toBe("https://wa.me/264852775140?text=Hello");
+    const url = buildWhatsAppUrl("081 000 0000", "Hello");
+    expect(url).toBe("https://wa.me/264810000000?text=Hello");
   });
 
   it("encodes message with special characters", () => {
-    const url = buildWhatsAppUrl("264852775140", "Hi, I'm interested!");
-    expect(url).toContain("https://wa.me/264852775140?text=");
+    const url = buildWhatsAppUrl("264810000000", "Hi, I'm interested!");
+    expect(url).toContain("https://wa.me/264810000000?text=");
     expect(url).toContain(encodeURIComponent("Hi, I'm interested!"));
   });
 
   it("handles long messages with newlines", () => {
     const msg = "Line 1\nLine 2\nLine 3";
-    const url = buildWhatsAppUrl("264852775140", msg);
+    const url = buildWhatsAppUrl("264810000000", msg);
     expect(url).toContain(encodeURIComponent(msg));
   });
 });

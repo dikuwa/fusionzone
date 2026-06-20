@@ -25,8 +25,8 @@ const baseUrl = getAppUrl();
 export function OrderConfirmationEmail({
   customerName,
   orderNumber,
-  storeName = "Desert Technology Consultant",
-  storePhone = "+264 85 277 5140",
+  storeName = "FusionZone",
+  storePhone = "+264 00 000 0000",
 }: OrderConfirmationEmailProps) {
   const orderUrl = `${baseUrl}/order-success/${orderNumber}`;
 
@@ -71,7 +71,7 @@ export function OrderConfirmationEmail({
           </Section>
 
           <Section style={ctaSection}>
-            <Link href={`https://wa.me/264852775140?text=${encodeURIComponent("Hi, I have a question about my order.")}`} style={button}>
+            <Link href={`https://wa.me/264000000000?text=${encodeURIComponent("Hi, I have a question about my order.")}`} style={button}>
               Contact us on WhatsApp
             </Link>
           </Section>
@@ -127,7 +127,7 @@ const logo = {
 
 const tagline = {
   fontSize: 12,
-  color: "#f68923",
+  color: "#0d41e2",
   margin: "4px 0 0 0",
   fontWeight: 600,
 };

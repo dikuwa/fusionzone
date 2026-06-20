@@ -127,7 +127,7 @@ describe("Audit Log - order operations", () => {
     const orderLog = logs.find((l) => l.action === "Order created");
     expect(orderLog).toBeTruthy();
     expect(orderLog!.entityType).toBe("order");
-    expect(orderLog!.entityLabel).toMatch(/^DT-/);
+    expect(orderLog!.entityLabel).toMatch(/^FZ-/);
   });
 
   it("should log order contact status update", () => {
@@ -176,7 +176,7 @@ describe("Audit Log - quotation operations", () => {
     const creationLog = logs.find((l) => l.action === "Quotation created");
     expect(creationLog).toBeTruthy();
     expect(creationLog!.entityType).toBe("quotation");
-    expect(creationLog!.entityLabel).toMatch(/^DT-QTN-/);
+    expect(creationLog!.entityLabel).toMatch(/^FZ-QTN-/);
   });
 
   it("should log quotation status updates", () => {

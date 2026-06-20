@@ -183,7 +183,7 @@ export function CreateUserDialog({
   onSuccess,
 }: CreateUserDialogProps) {
   const settings = useDashboardStore((s) => s.settings);
-  const storeName = settings?.storeName || "Desert Technology Consultant";
+  const storeName = settings?.storeName || "FusionZone";
 
   // Common fields
   const [name, setName] = useState("");

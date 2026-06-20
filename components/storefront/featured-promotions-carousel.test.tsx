@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { FeaturedPromotionsCarousel } from "./featured-promotions-carousel";
 import { useDashboardStore } from "@/lib/store/dashboard";
+import type { DashboardPromotion } from "@/lib/dashboard-data";
 
 // Mock lucide-react icons
 vi.mock("lucide-react", async () => {
@@ -32,7 +33,7 @@ vi.mock("next/link", () => ({
   ),
 }));
 
-const mockPromotions = [
+const mockPromotions: DashboardPromotion[] = [
   {
     id: "pr1",
     title: "Gaming Setup Bundle",
@@ -83,12 +84,12 @@ const mockPromotions = [
   },
 ];
 
-const mockPromotionInactive = {
+const mockPromotionInactive: DashboardPromotion = {
   id: "pr4",
   title: "Expired Deal",
   slug: "expired-deal",
   description: "This promotion is no longer active.",
-  imageUrl: null,
+  imageUrl: undefined,
   placement: "FeaturedSection",
   isActive: false,
   isFeatured: true,
@@ -282,7 +283,7 @@ describe("FeaturedPromotionsCarousel", () => {
     });
 
     it("shows 'Service' badge for service type", () => {
-      const servicePromo = { ...mockPromotions[0], type: "service" };
+      const servicePromo: DashboardPromotion = { ...mockPromotions[0], type: "service" };
       useDashboardStore.setState({ promotions: [servicePromo] });
       render(<FeaturedPromotionsCarousel />);
 

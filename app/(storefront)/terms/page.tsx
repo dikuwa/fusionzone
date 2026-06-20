@@ -4,8 +4,8 @@ import { getStoreSettings } from "@/lib/store-settings";
 
 export default async function TermsPage() {
   const settings = await getStoreSettings();
-  const phoneNumber = settings.phone || "+264852775140";
-  const storeEmail = settings.email || "sales@desertechnam.com";
+  const phoneNumber = settings.phone || "+264000000000";
+  const storeEmail = settings.email || "sales@fusionzone.example";
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
       <Link
@@ -30,7 +30,7 @@ export default async function TermsPage() {
         <section>
           <h2 className="text-lg font-semibold text-foreground">1. General</h2>
           <p className="leading-relaxed">
-            These terms govern the use of the Desert Technology Consultant website and the purchase
+            These terms govern the use of the FusionZone website and the purchase
             of products and services from our store in Windhoek, Namibia. By placing an order or
             using this site, you agree to these terms.
           </p>
@@ -85,7 +85,7 @@ export default async function TermsPage() {
         <section>
           <h2 className="text-lg font-semibold text-foreground">7. Limitation of Liability</h2>
           <p className="leading-relaxed">
-            Desert Technology Consultant is not liable for indirect damages arising from the use or
+            FusionZone is not liable for indirect damages arising from the use or
             inability to use purchased products. Our total liability is limited to the purchase price
             of the product in question.
           </p>

@@ -46,8 +46,8 @@ export function StorefrontHeader() {
 
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const megaMenuRef = useRef<HTMLDivElement>(null);
-  const whatsapp = settings.whatsapp || "264852775140";
-  const phone = settings.phone || "+264852775140";
+  const whatsapp = settings.whatsapp || "264000000000";
+  const phone = settings.phone || "+264000000000";
   const activePayments = paymentMethods.filter((p) => p.isActive);
   const { isOpen: mobileMenuOpen, toggle: toggleMobileMenu, close: closeMobileMenu } = useMobileMenu();
   const [searchQuery, setSearchQuery] = useState("");
@@ -149,7 +149,7 @@ export function StorefrontHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur">
-      <div className="bg-[#0d41e1] text-white">
+      <div className="bg-[#0d41e2] text-white">
         <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-4 text-xs sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <a
@@ -206,12 +206,12 @@ export function StorefrontHeader() {
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex-shrink-0 flex items-center gap-2.5">
             <img
-              src="/images/desert-tech-logo.svg"
-              alt="Desert Tech"
+              src="/images/fusionzone-mark.svg"
+              alt="FusionZone"
               className="h-9 w-auto"
             />
             <span className="leading-tight">
-              <span className="block text-lg font-bold text-foreground">DesertTech</span>
+              <span className="block text-lg font-bold text-foreground">FusionZone</span>
               <span className="hidden text-[11px] font-semibold text-primary sm:block">
                 Electronics retail
               </span>
@@ -286,7 +286,7 @@ export function StorefrontHeader() {
 
           <div className="flex items-center gap-2 ml-auto">
             <a
-              href={buildWhatsAppUrl(whatsapp, "Hi DesertTech, I need help with an order/product.")}
+              href={buildWhatsAppUrl(whatsapp, "Hi FusionZone, I need help with an order/product.")}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:border-whatsapp/30 hover:bg-whatsapp-soft hover:text-whatsapp active:translate-y-0 lg:flex"
@@ -297,12 +297,12 @@ export function StorefrontHeader() {
             {/* Wishlist icon */}
             <Link
               href="/wishlist"
-              className="relative flex items-center justify-center h-10 w-10 rounded-lg text-muted-foreground hover:text-[#f68923] hover:bg-[#f68923]/5 transition-colors"
+              className="relative flex items-center justify-center h-10 w-10 rounded-lg text-muted-foreground hover:text-[#0d41e2] hover:bg-[#0d41e2]/5 transition-colors"
               aria-label={`Wishlist (${wishlistCount} items)`}
             >
               <Heart className="h-5 w-5" />
               {wishlistCount > 0 && (
-                <span className="absolute -right-1 -top-1 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-[#f68923] px-1 text-[10px] font-bold leading-none text-white ring-2 ring-background">
+                <span className="absolute -right-1 -top-1 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-[#0d41e2] px-1 text-[10px] font-bold leading-none text-white ring-2 ring-background">
                   {wishlistCount > 99 ? "99+" : wishlistCount}
                 </span>
               )}

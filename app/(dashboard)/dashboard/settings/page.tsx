@@ -837,7 +837,7 @@ export default function SettingsPage() {
                 <input
                   value={form.phone}
                   onChange={(e) => updateField("phone", e.target.value)}
-                  placeholder="+264 85 277 5140"
+                  placeholder="+264 00 000 0000"
                   className="mt-1.5 h-11 w-full rounded-lg border border-border bg-background px-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/30"
                 />
                 <p className="mt-1 text-[10px] text-muted-foreground">Primary phone displayed in header &amp; hero CTA.</p>
@@ -847,7 +847,7 @@ export default function SettingsPage() {
                 <input
                   value={form.whatsapp}
                   onChange={(e) => updateField("whatsapp", e.target.value)}
-                  placeholder="264852775140"
+                  placeholder="264000000000"
                   className="mt-1.5 h-11 w-full rounded-lg border border-border bg-background px-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/30"
                 />
                 <p className="mt-1 text-[10px] text-muted-foreground">Without + prefix. Used in WhatsApp links across all pages.</p>
@@ -857,7 +857,7 @@ export default function SettingsPage() {
                 <input
                   value={form.email}
                   onChange={(e) => updateField("email", e.target.value)}
-                  placeholder="sales@desertechnam.com"
+                  placeholder="sales@fusionzone.example"
                   className="mt-1.5 h-11 w-full rounded-lg border border-border bg-background px-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/30"
                 />
               </div>
@@ -983,7 +983,7 @@ export default function SettingsPage() {
                     </p>
                     {form.heroImageUrl && !form.heroImageUrl.startsWith("/images/") && (
                       <button
-                        onClick={() => setForm((prev) => ({ ...prev, heroImageUrl: "/images/DTC-BG.webp" }))}
+                        onClick={() => setForm((prev) => ({ ...prev, heroImageUrl: "/images/fusionzone-hero.png" }))}
                         className="inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-destructive transition-colors"
                       >
                         <Trash2 className="h-3 w-3" />
@@ -1046,7 +1046,7 @@ export default function SettingsPage() {
                 </div>
                 <div className="rounded-lg border border-border bg-background p-4">
                   <div className="mb-2 inline-flex rounded-full border border-border bg-card px-3 py-1 text-[10px] font-semibold text-muted-foreground">
-                    Desert Technology Consultant, Namibia
+                    FusionZone, Namibia
                   </div>
                   <h3 className="text-lg font-semibold leading-tight text-foreground">
                     {decodeHTMLEntities(form.heroHeading)}
@@ -1206,7 +1206,7 @@ export default function SettingsPage() {
                     <input
                       value={contactForm.value}
                       onChange={(e) => setContactForm((f) => ({ ...f, value: e.target.value }))}
-                      placeholder={contactForm.type === "phone" ? "+264 85 277 5140" : contactForm.type === "whatsapp" ? "264852775140" : contactForm.type === "email" ? "info@example.com" : "Windhoek, Namibia"}
+                      placeholder={contactForm.type === "phone" ? "+264 00 000 0000" : contactForm.type === "whatsapp" ? "264000000000" : contactForm.type === "email" ? "info@example.com" : "Windhoek, Namibia"}
                       className="mt-1 h-10 w-full rounded-lg border border-border bg-background px-3 text-sm font-mono focus:border-primary focus:outline-none"
                     />
                     {contactForm.type === "whatsapp" && (
@@ -1365,7 +1365,7 @@ export default function SettingsPage() {
                       <input
                         value={bankForm.accountName}
                         onChange={(e) => setBankForm((f) => ({ ...f, accountName: e.target.value }))}
-                        placeholder="e.g. Desert TECHNOLOGIES"
+                        placeholder="e.g. FusionZone"
                         className="mt-1 h-10 w-full rounded-lg border border-border bg-background px-3 text-sm focus:border-primary focus:outline-none"
                       />
                     </div>

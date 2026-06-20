@@ -34,8 +34,8 @@ export default function OrderSuccessPage() {
   const settings = useDashboardStore((s) => s.settings);
   const whatsappContact = activeContacts.find((c) => c.type === "whatsapp");
   const phoneContact = activeContacts.find((c) => c.type === "phone");
-  const whatsapp = whatsappContact?.value || settings.whatsapp || "264852775140";
-  const phone = phoneContact?.value || settings.phone || "+264852775140";
+  const whatsapp = whatsappContact?.value || settings.whatsapp || "264000000000";
+  const phone = phoneContact?.value || settings.phone || "+264000000000";
   const [order, setOrder] = useState<OrderData | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -63,7 +63,7 @@ export default function OrderSuccessPage() {
   }
 
   const shareMessage = encodeURIComponent(
-    `I've placed an order (${orderNumber}) with Desert Technology. Looking forward to your response!`,
+    `I've placed an order (${orderNumber}) with FusionZone. Looking forward to your response!`,
   );
 
   return (

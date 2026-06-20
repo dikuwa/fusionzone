@@ -290,9 +290,9 @@ export const mockPromotions: DashboardPromotion[] = [
 ];
 
 export const mockStaff: DashboardStaff[] = [
-  { id: "s1", name: "Admin User", email: "admin@deserttech.com", role: "Admin", permissions: ["all"], lastActive: "2026-06-02T10:00:00Z", isActive: true, createdAt: "2026-01-01" },
-  { id: "s2", name: "Sarah Staff", email: "sarah@deserttech.com", role: "Staff", permissions: ["orders:view", "orders:update", "products:view", "customers:view", "followups:manage"], lastActive: "2026-06-01T14:30:00Z", isActive: true, createdAt: "2026-02-15" },
-  { id: "s3", name: "Mike Assistant", email: "mike@deserttech.com", role: "Staff", permissions: ["orders:view", "customers:view"], lastActive: "2026-05-28T09:00:00Z", isActive: true, createdAt: "2026-03-01" },
+  { id: "s1", name: "Admin User", email: "admin@fusionzone.example", role: "Admin", permissions: ["all"], lastActive: "2026-06-02T10:00:00Z", isActive: true, createdAt: "2026-01-01" },
+  { id: "s2", name: "Sarah Staff", email: "sarah@fusionzone.example", role: "Staff", permissions: ["orders:view", "orders:update", "products:view", "customers:view", "followups:manage"], lastActive: "2026-06-01T14:30:00Z", isActive: true, createdAt: "2026-02-15" },
+  { id: "s3", name: "Mike Assistant", email: "mike@fusionzone.example", role: "Staff", permissions: ["orders:view", "customers:view"], lastActive: "2026-05-28T09:00:00Z", isActive: true, createdAt: "2026-03-01" },
 ];
 
 export const mockFollowUps: DashboardFollowUp[] = [
@@ -393,39 +393,37 @@ export const mockPayments: DashboardPayment[] = [
 ];
 
 export const storeSettings = {
-  storeName: "Desert Technology Consultant",
-  phone: "+264 85 277 5140",
-  whatsapp: "264852775140",
-  email: "sales@desertechnam.com",
+  storeName: "FusionZone",
+  phone: "+264 00 000 0000",
+  whatsapp: "264000000000",
+  email: "sales@fusionzone.example",
   address: "Windhoek, Namibia",
-  bankName: "Standard Bank",
-  bankAccountName: "Desert TECHNOLOGIES",
-  bankAccountNumber: "60003162833",
-  bankBranchCode: "082672",
-  receiptPrefix: "DT",
+  bankName: "",
+  bankAccountName: "",
+  bankAccountNumber: "",
+  bankBranchCode: "",
+  receiptPrefix: "FZ",
   lowStockThreshold: 5,
   currency: "NAD",
   heroHeading: "Namibia&rsquo;s tech — tested, warranted, and a message away.",
   heroSubheading: "Shop laptops, phones, gaming builds, CCTV, networking and POS gear with clear pricing, tested stock and direct local assistance.",
-  heroImageUrl: "/images/DTC-BG.webp",
+  heroImageUrl: "/images/fusionzone-hero.png",
   contactDetails: [] as ContactDetail[],
   bankDetails: [] as BankDetail[],
   paymentMethods: [] as PaymentMethod[],
 };
 
 export const defaultContactDetails: ContactDetail[] = [
-  { id: "cd1", type: "phone", label: "Main", value: "+264 85 277 5140", isActive: true },
-  { id: "cd2", type: "whatsapp", label: "Sales", value: "264852775140", isActive: true },
-  { id: "cd3", type: "email", label: "General", value: "sales@desertechnam.com", isActive: true },
+  { id: "cd1", type: "phone", label: "Main", value: "+264 00 000 0000", isActive: true },
+  { id: "cd2", type: "whatsapp", label: "Sales", value: "264000000000", isActive: true },
+  { id: "cd3", type: "email", label: "General", value: "sales@fusionzone.example", isActive: true },
   { id: "cd4", type: "address", label: "Physical", value: "Windhoek, Namibia", isActive: true },
 ];
 
-export const defaultBankDetails: BankDetail[] = [
-  { id: "bd1", bankName: "Standard Bank", accountName: "Desert TECHNOLOGIES", accountNumber: "60003162833", branchCode: "082672", isActive: true },
-];
+export const defaultBankDetails: BankDetail[] = [];
 
 export const defaultPaymentMethods: PaymentMethod[] = [
-  { id: "pm1", name: "Bank Transfer", type: "BankTransfer", details: "Standard Bank", instructions: "Use your order reference as payment reference", isActive: true },
+  { id: "pm1", name: "Bank Transfer", type: "BankTransfer", details: "Configure FusionZone banking details before accepting transfers", instructions: "Use your order reference as payment reference", isActive: false },
   { id: "pm2", name: "Cash at Store", type: "Cash", details: "Pay in person at our Windhoek location", isActive: true },
   { id: "pm3", name: "Phone Transfer (E-Wallet)", type: "PhoneTransfer", details: "Send via mobile money or e-wallet", instructions: "Contact us for the phone number to send to", isActive: true },
 ];

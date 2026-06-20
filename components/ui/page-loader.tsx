@@ -1,5 +1,5 @@
 /**
- * A branded page loading indicator that matches the Desert Tech design language.
+ * A branded page loading indicator that matches the FusionZone design language.
  * Two variants:
  *   - "full"  : centered vertically in the viewport (for root / non-dashboard pages)
  *   - "inline": smaller, for content areas within an already-rendered layout (dashboard pages)
@@ -26,10 +26,10 @@ export function PageLoader({ variant = "full" }: PageLoaderProps) {
       {/* Brand mark */}
       <div className="flex items-baseline gap-0.5 select-none">
         <span className="text-2xl font-bold tracking-tight text-foreground">
-          Desert
+          Fusion
         </span>
         <span className="text-2xl font-bold tracking-tight text-primary">
-          Tech
+          Zone
         </span>
       </div>
 

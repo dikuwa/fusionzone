@@ -1,5 +1,5 @@
 /**
- * WhatsApp URL utility for Desert Tech.
+ * WhatsApp URL utility for FusionZone.
  *
  * Provides a shared phone formatter and wa.me link generator
  * so every WhatsApp button across the site uses the same logic.
@@ -14,15 +14,15 @@
  * Never use api.whatsapp.com/resolve links.
  */
 
-const BUSINESS_WHATSAPP = "264852775140";
+const BUSINESS_WHATSAPP = "264000000000";
 
 /**
  * Format a phone number for WhatsApp wa.me links.
  *
  * Examples:
- *   "085 277 5140"  → "264852775140"
- *   "+264 85 277 5140" → "264852775140"
- *   "264852775140"  → "264852775140"
+ *   "085 277 5140"  → "264000000000"
+ *   "+264 00 000 0000" → "264000000000"
+ *   "264000000000"  → "264000000000"
  */
 export function formatWhatsAppPhone(phone: string): string {
   // Strip all non-digit characters

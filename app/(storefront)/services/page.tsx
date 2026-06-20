@@ -242,7 +242,7 @@ export default function ServicesPage() {
               <div className="flex-1">
                 <h3 className="text-sm font-bold text-foreground">We Buy Selected Pre-Owned Tech</h3>
                 <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-                  Have a laptop, electronic gadget, or tech device you no longer use? DesertTech buys selected pre-owned laptops, electronics, and related technology items after inspection and condition checks.
+                  Have a laptop, electronic gadget, or tech device you no longer use? FusionZone buys selected pre-owned laptops, electronics, and related technology items after inspection and condition checks.
                 </p>
                 <ul className="mt-4 grid gap-2 text-sm text-muted-foreground sm:grid-cols-2 lg:grid-cols-3">
                   {["Pre-owned laptops", "Selected electronic gadgets", "Computer accessories", "Tech devices in good working condition", "Inspection before purchase", "Fair condition-based offers"].map((item) => (
@@ -270,7 +270,7 @@ export default function ServicesPage() {
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
             {settings.whatsapp && (
               <a
-                href={buildWhatsAppUrl(settings.whatsapp, "Hi DesertTech, I need help with a custom technology solution.")}
+                href={buildWhatsAppUrl(settings.whatsapp, "Hi FusionZone, I need help with a custom technology solution.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-whatsapp/20 bg-whatsapp-soft px-6 py-3 text-sm font-semibold text-whatsapp transition-all hover:-translate-y-0.5 hover:border-whatsapp/30 hover:bg-whatsapp hover:text-white hover:shadow-md"

@@ -17,7 +17,7 @@ export function DashboardToaster() {
           success:
             "!bg-[#E8F7EE] !text-[#15803D] !border-[#15803D]/30",
           error:
-            "!bg-[#FFF3E8] !text-[#f68923] !border-[#f68923]/30",
+            "!bg-[#e8eeff] !text-[#0d41e2] !border-[#0d41e2]/30",
         },
       }}
     />

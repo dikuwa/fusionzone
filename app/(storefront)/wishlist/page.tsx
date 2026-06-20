@@ -16,8 +16,8 @@ export default function WishlistPage() {
   const settings = useDashboardStore((s) => s.settings);
   const [removingId, setRemovingId] = useState<string | null>(null);
 
-  const whatsappNumber = settings.whatsapp || "264852775140";
-  const phoneNumber = settings.phone || "+264852775140";
+  const whatsappNumber = settings.whatsapp || "264000000000";
+  const phoneNumber = settings.phone || "+264000000000";
 
   const handleRemove = (productId: string) => {
     setRemovingId(productId);

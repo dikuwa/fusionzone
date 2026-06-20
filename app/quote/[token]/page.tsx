@@ -59,11 +59,11 @@ export default async function PublicQuotationPage({ params }: PublicQuotationPag
         <div className="flex items-center justify-between mb-6">
           <Link href="/" className="flex items-center gap-2">
             <img
-              src="/images/deserttech-favicon.svg"
-              alt="Desert Technology"
+              src="/images/fusionzone-mark.svg"
+              alt="FusionZone"
               className="h-8 w-auto"
             />
-            <span className="text-sm font-bold text-foreground">Desert Technology</span>
+            <span className="text-sm font-bold text-foreground">FusionZone</span>
           </Link>
           <span className="rounded-md bg-primary/10 text-primary px-2.5 py-1 text-[10px] font-bold tracking-wider">
             QUOTATION

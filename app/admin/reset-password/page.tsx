@@ -182,7 +182,7 @@ export default function ResetPasswordPage() {
           <div className="mb-8 text-center">
             <div className="mb-5 flex justify-center">
               <Image
-                src="/images/desertech-auth-logo.svg"
+                src="/images/fusionzone-mark.svg"
                 alt="Dashboard"
                 width={92}
                 height={80}

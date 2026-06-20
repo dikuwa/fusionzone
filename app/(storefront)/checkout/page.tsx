@@ -72,8 +72,8 @@ function CheckoutContent() {
   const contactDetails = useDashboardStore((s) => s.contactDetails);
   const paymentMethods = useDashboardStore((s) => s.paymentMethods);
   const bankDetails = useDashboardStore((s) => s.bankDetails);
-  const whatsapp = settings.whatsapp || "264852775140";
-  const phone = settings.phone || "+264852775140";
+  const whatsapp = settings.whatsapp || "264000000000";
+  const phone = settings.phone || "+264000000000";
   const activePayments = paymentMethods.filter((p) => p.isActive);
   const activeBanks = bankDetails.filter((b) => b.isActive);
   const subtotal = getSubtotal();

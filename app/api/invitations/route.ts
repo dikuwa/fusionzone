@@ -144,7 +144,7 @@ export async function POST(req: NextRequest) {
       : DEFAULT_ROLE_PERMISSIONS[role];
 
     // If no email provided but phone is, use a unique placeholder
-    const email = rawEmail || `wa-${(phone || "").replace(/[^\d]/g, "")}@invite.desertechnam.com`;
+    const email = rawEmail || `wa-${(phone || "").replace(/[^\d]/g, "")}@invite.fusionzone.example`;
 
     if (role === UserRole.ADMIN && currentUser.role !== UserRole.OWNER) {
       return NextResponse.json(

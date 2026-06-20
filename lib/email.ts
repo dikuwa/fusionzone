@@ -1,5 +1,5 @@
 /**
- * Email service for Desert Tech.
+ * Email service for FusionZone.
  * Handles transactional emails including invitations, password resets, and notifications.
  */
 
@@ -11,11 +11,15 @@ const resendApiKey = process.env.RESEND_API_KEY;
 // 1. RESEND_FROM_EMAIL (explicitly configured verified sender)
 // 2. BUSINESS_EMAIL (the store's business email)
 // 3. Fallback to Resend's default test sender (onboarding@resend.dev) - always available
-const RESEND_FROM = process.env.RESEND_FROM_EMAIL || process.env.BUSINESS_EMAIL || "DesertTech <onboarding@resend.dev>";
-const RESEND_REPLY_TO = process.env.RESEND_REPLY_TO_EMAIL || process.env.RESEND_REPLY_TO || process.env.BUSINESS_EMAIL || "sales@desertechnam.com";
+const RESEND_FROM = process.env.RESEND_FROM_EMAIL || process.env.BUSINESS_EMAIL || "FusionZone <onboarding@resend.dev>";
+const RESEND_REPLY_TO = process.env.RESEND_REPLY_TO_EMAIL || process.env.RESEND_REPLY_TO || process.env.BUSINESS_EMAIL || "sales@fusionzone.example";
 
 import { getAppUrl } from "./app-url";
 const appUrl = getAppUrl();
+const withStagingPrefix = (subject: string) =>
+  process.env.VERCEL_ENV === "production" || subject.startsWith("[FUSIONZONE TEST]")
+    ? subject
+    : `[FUSIONZONE TEST] ${subject}`;
 
 // Initialize Resend only if API key is available
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
@@ -42,7 +46,8 @@ interface EmailWithAttachmentOptions extends EmailOptions {
  * Falls back to console logging in development without API key.
  */
 export async function sendEmail(options: EmailOptions): Promise<void> {
-  const { to, subject, html, text } = options;
+  const { to, html, text } = options;
+  const subject = withStagingPrefix(options.subject);
 
   // Log email in development
   if (!resend) {
@@ -90,7 +95,8 @@ export async function sendEmail(options: EmailOptions): Promise<void> {
  * Falls back to console logging in development without API key.
  */
 export async function sendEmailWithAttachment(options: EmailWithAttachmentOptions): Promise<void> {
-  const { to, subject, html, text, attachments } = options;
+  const { to, html, text, attachments } = options;
+  const subject = withStagingPrefix(options.subject);
 
   // Log email in development
   if (!resend) {
@@ -147,7 +153,7 @@ interface WelcomeEmailParams {
 }
 
 export async function sendWelcomeEmail(params: WelcomeEmailParams): Promise<void> {
-  const { to, name, storeName = "Desert Technology Consultant" } = params;
+  const { to, name, storeName = "FusionZone" } = params;
 
   const html = `
 <!DOCTYPE html>
@@ -158,7 +164,7 @@ export async function sendWelcomeEmail(params: WelcomeEmailParams): Promise<void
   <style>
     body { font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #111; background: #f7f7f7; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 0 auto; background: #fff; }
-    .header { background: #f68923; padding: 40px 30px; text-align: center; }
+    .header { background: #0d41e2; padding: 40px 30px; text-align: center; }
     .header h1 { color: #fff; margin: 0; font-size: 24px; font-weight: 700; }
     .content { padding: 40px 30px; }
     .content h2 { color: #111; font-size: 20px; margin-top: 0; }
@@ -174,7 +180,7 @@ export async function sendWelcomeEmail(params: WelcomeEmailParams): Promise<void
       <h2>Welcome, ${name}!</h2>
       <p>Your ${storeName} account has been created. You can now sign in to the dashboard.</p>
       <p>If you were created via the direct account method, you may need to change your password on first login.</p>
-      <p><a href="${appUrl}/login" style="color: #f68923;">Sign in to your account</a></p>
+      <p><a href="${appUrl}/login" style="color: #0d41e2;">Sign in to your account</a></p>
     </div>
     <div class="footer">
       <p>${storeName} | Namibia</p>
@@ -208,7 +214,7 @@ interface TwoFactorEmailParams {
 }
 
 export async function sendTwoFactorEmail(params: TwoFactorEmailParams): Promise<void> {
-  const { to, name, action, resetBy, storeName = "Desert Technology Consultant" } = params;
+  const { to, name, action, resetBy, storeName = "FusionZone" } = params;
 
   const subject = action === "enabled"
     ? `Two-Factor Authentication Enabled — ${storeName}`
@@ -286,7 +292,7 @@ interface RoleChangeEmailParams {
 }
 
 export async function sendRoleChangeEmail(params: RoleChangeEmailParams): Promise<void> {
-  const { to, name, changes, changedBy, storeName = "Desert Technology Consultant" } = params;
+  const { to, name, changes, changedBy, storeName = "FusionZone" } = params;
 
   const html = `
 <!DOCTYPE html>
@@ -297,7 +303,7 @@ export async function sendRoleChangeEmail(params: RoleChangeEmailParams): Promis
   <style>
     body { font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #111; background: #f7f7f7; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 0 auto; background: #fff; }
-    .header { background: #f68923; padding: 40px 30px; text-align: center; }
+    .header { background: #0d41e2; padding: 40px 30px; text-align: center; }
     .header h1 { color: #fff; margin: 0; font-size: 24px; font-weight: 700; }
     .content { padding: 40px 30px; }
     .changes { background: #f7f7f7; padding: 20px; border-radius: 8px; margin: 20px 0; }
@@ -359,7 +365,7 @@ interface InvitationEmailParams {
 }
 
 export async function sendInvitationEmail(params: InvitationEmailParams): Promise<void> {
-  const { to, name, inviterName, code, token, role, note, storeName = "Desert Technology Consultant" } = params;
+  const { to, name, inviterName, code, token, role, note, storeName = "FusionZone" } = params;
 
   // Use short branded link when available, fall back to long token URL
   const invitationUrl = code
@@ -379,17 +385,17 @@ export async function sendInvitationEmail(params: InvitationEmailParams): Promis
   <style>
     body { font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #111; background: #f7f7f7; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 0 auto; background: #fff; }
-    .header { background: #f68923; padding: 40px 30px; text-align: center; }
+    .header { background: #0d41e2; padding: 40px 30px; text-align: center; }
     .header h1 { color: #fff; margin: 0; font-size: 24px; font-weight: 700; }
     .content { padding: 40px 30px; }
     .content h2 { color: #111; font-size: 20px; margin-top: 0; }
-    .button { display: inline-block; background: #f68923; color: #fff; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 600; margin: 20px 0; }
+    .button { display: inline-block; background: #0d41e2; color: #fff; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 600; margin: 20px 0; }
     .button:hover { background: #dd781c; }
     .details { background: #f7f7f7; padding: 20px; border-radius: 8px; margin: 20px 0; }
     .details p { margin: 8px 0; }
     .details strong { color: #111; }
     .footer { background: #111; color: #9a9a9a; padding: 30px; text-align: center; font-size: 13px; }
-    .footer a { color: #f68923; }
+    .footer a { color: #0d41e2; }
     .expiry { color: #dc2626; font-size: 13px; margin-top: 20px; }
   </style>
 </head>
@@ -417,7 +423,7 @@ export async function sendInvitationEmail(params: InvitationEmailParams): Promis
 
       <p style="font-size: 13px; color: #6f6f6f; margin-top: 30px;">
         If the button doesn't work, copy and paste this link into your browser:<br>
-        <a href="${invitationUrl}" style="color: #f68923; word-break: break-all;">${invitationUrl}</a>
+        <a href="${invitationUrl}" style="color: #0d41e2; word-break: break-all;">${invitationUrl}</a>
       </p>
     </div>
     <div class="footer">
@@ -464,7 +470,7 @@ interface PasswordResetEmailParams {
 }
 
 export async function sendPasswordResetEmail(params: PasswordResetEmailParams): Promise<void> {
-  const { to, token, storeName = "Desert Technology Consultant" } = params;
+  const { to, token, storeName = "FusionZone" } = params;
 
   const resetUrl = `${appUrl}/admin/reset-password?token=${token}`;
 
@@ -478,11 +484,11 @@ export async function sendPasswordResetEmail(params: PasswordResetEmailParams): 
   <style>
     body { font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #111; background: #f7f7f7; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 0 auto; background: #fff; }
-    .header { background: #f68923; padding: 40px 30px; text-align: center; }
+    .header { background: #0d41e2; padding: 40px 30px; text-align: center; }
     .header h1 { color: #fff; margin: 0; font-size: 24px; font-weight: 700; }
     .content { padding: 40px 30px; }
     .content h2 { color: #111; font-size: 20px; margin-top: 0; }
-    .button { display: inline-block; background: #f68923; color: #fff; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 600; margin: 20px 0; }
+    .button { display: inline-block; background: #0d41e2; color: #fff; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 600; margin: 20px 0; }
     .button:hover { background: #dd781c; }
     .expiry { color: #dc2626; font-size: 13px; margin-top: 20px; }
     .footer { background: #111; color: #9a9a9a; padding: 30px; text-align: center; font-size: 13px; }
@@ -509,7 +515,7 @@ export async function sendPasswordResetEmail(params: PasswordResetEmailParams): 
 
       <p style="font-size: 13px; color: #6f6f6f;">
         If the button doesn't work, copy and paste this link into your browser:<br>
-        <a href="${resetUrl}" style="color: #f68923; word-break: break-all;">${resetUrl}</a>
+        <a href="${resetUrl}" style="color: #0d41e2; word-break: break-all;">${resetUrl}</a>
       </p>
     </div>
     <div class="footer">
@@ -552,7 +558,7 @@ interface PasswordChangedEmailParams {
 }
 
 export async function sendPasswordChangedEmail(params: PasswordChangedEmailParams): Promise<void> {
-  const { to, name, storeName = "Desert Technology Consultant" } = params;
+  const { to, name, storeName = "FusionZone" } = params;
 
   const html = `
 <!DOCTYPE html>
@@ -563,7 +569,7 @@ export async function sendPasswordChangedEmail(params: PasswordChangedEmailParam
   <style>
     body { font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #111; background: #f7f7f7; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 0 auto; background: #fff; }
-    .header { background: #f68923; padding: 40px 30px; text-align: center; }
+    .header { background: #0d41e2; padding: 40px 30px; text-align: center; }
     .header h1 { color: #fff; margin: 0; font-size: 24px; font-weight: 700; }
     .content { padding: 40px 30px; }
     .alert { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px; margin: 20px 0; }
@@ -624,7 +630,7 @@ interface AccountStatusEmailParams {
 }
 
 export async function sendAccountStatusEmail(params: AccountStatusEmailParams): Promise<void> {
-  const { to, name, status, reason, storeName = "Desert Technology Consultant" } = params;
+  const { to, name, status, reason, storeName = "FusionZone" } = params;
 
   const isSuspended = status === "suspended";
   const subject = isSuspended

@@ -1,5 +1,5 @@
 /**
- * Enums for Desert Tech Auth System
+ * Enums for FusionZone Auth System
  * Temporary file until Prisma generates the actual enums
  */
 

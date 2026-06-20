@@ -34,9 +34,9 @@ export function ReceiptEmail({
   receiptNumber,
   totalAmount,
   publicUrl,
-  storeName = "Desert Technology Consultant",
-  storePhone = "+264 85 277 5140",
-  storeEmail = "sales@desertechnam.com",
+  storeName = "FusionZone",
+  storePhone = "+264 00 000 0000",
+  storeEmail = "sales@fusionzone.example",
 }: ReceiptEmailProps) {
   const receiptUrl = publicUrl || `${baseUrl}/api/receipts/generate?orderId=${orderNumber}&view=1`;
 
@@ -144,7 +144,7 @@ const logo = {
 
 const tagline = {
   fontSize: 12,
-  color: "#f68923",
+  color: "#0d41e2",
   margin: "4px 0 0 0",
   fontWeight: 600,
 };
@@ -204,7 +204,7 @@ const ctaSection = {
 };
 
 const button = {
-  backgroundColor: "#f68923",
+  backgroundColor: "#0d41e2",
   borderRadius: 8,
   color: "#ffffff",
   display: "inline-block",

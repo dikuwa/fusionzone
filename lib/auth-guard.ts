@@ -29,7 +29,7 @@ export async function getSession(): Promise<Session> {
       user: {
         id: "admin-1",
         name: "Admin User",
-        email: "admin@deserttech.com",
+        email: "admin@fusionzone.example",
         role: "Admin",
       },
     };

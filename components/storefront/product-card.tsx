@@ -111,12 +111,12 @@ export function ProductCard({ product }: ProductCardProps) {
           "absolute right-3 top-3 z-20 flex h-8 w-8 items-center justify-center rounded-lg border bg-card/95 shadow-xs transition-all",
           isSoldOut && "hidden",
           wishlisted
-            ? "border-[#f68923]/40 bg-[#f68923]/10 text-[#f68923]"
-            : "border-border text-muted-foreground hover:border-[#f68923]/40 hover:bg-[#f68923]/5 hover:text-[#f68923]",
+            ? "border-[#0d41e2]/40 bg-[#0d41e2]/10 text-[#0d41e2]"
+            : "border-border text-muted-foreground hover:border-[#0d41e2]/40 hover:bg-[#0d41e2]/5 hover:text-[#0d41e2]",
         )}
         aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
       >
-        <Heart className={cn("h-4 w-4", wishlisted && "fill-[#f68923]")} />
+        <Heart className={cn("h-4 w-4", wishlisted && "fill-[#0d41e2]")} />
       </button>
 
       <Link

@@ -1,5 +1,5 @@
 /**
- * Permission system for Desert Tech staff access control.
+ * Permission system for FusionZone staff access control.
  * All permissions are enforced server-side.
  */
 

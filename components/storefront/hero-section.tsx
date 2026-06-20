@@ -18,7 +18,7 @@ import { fadeUpVariants, motionTransition } from "@/lib/motion";
 const DEFAULT_HEADING = "Namibia&rsquo;s tech — tested, warranted, and a message away.";
 const DEFAULT_SUBHEADING =
   "Shop laptops, phones, gaming builds, CCTV, networking and POS gear with clear pricing, tested stock and direct local assistance.";
-const DEFAULT_IMAGE = "/images/DTC-BG.webp";
+const DEFAULT_IMAGE = "/images/fusionzone-hero.png";
 
 export function HeroSection() {
   // Read settings from the shared zustand store (persisted to localStorage).
@@ -28,8 +28,8 @@ export function HeroSection() {
   const heading = settings.heroHeading || DEFAULT_HEADING;
   const subheading = settings.heroSubheading || DEFAULT_SUBHEADING;
   const imageUrl = settings.heroImageUrl || DEFAULT_IMAGE;
-  const whatsapp = settings.whatsapp || "264852775140";
-  const phone = settings.phone || "+264852775140";
+  const whatsapp = settings.whatsapp || "264000000000";
+  const phone = settings.phone || "+264000000000";
 
   return (
     <motion.section
@@ -49,7 +49,7 @@ export function HeroSection() {
         >
           <img
             src={imageUrl}
-            alt="Desert Tech electronics showroom"
+            alt="FusionZone electronics showroom"
             className="w-full h-full object-cover"
           />
         </motion.div>
@@ -63,7 +63,7 @@ export function HeroSection() {
           className="flex flex-col justify-center lg:order-1"
         >
           <div className="mb-5 inline-flex w-fit items-center rounded-full border border-border bg-card px-4 py-1.5 text-xs font-semibold text-muted-foreground shadow-xs">
-            Desert Technology Consultant, Namibia
+            FusionZone, Namibia
           </div>
 
           {/* Admin-controlled heading - safely renders HTML entities like &rsquo; without XSS risk */}

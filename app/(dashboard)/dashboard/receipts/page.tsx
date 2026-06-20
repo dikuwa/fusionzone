@@ -184,7 +184,7 @@ export default function ReceiptsPage() {
         return;
       }
       const shareUrl = data.shortUrl ?? data.url;
-      const msg = `Hi ${customerName}, here is your receipt for order ${orderNumber}.\n\nView it here: ${shareUrl}\n\nThank you for choosing Desert Technology!`;
+      const msg = `Hi ${customerName}, here is your receipt for order ${orderNumber}.\n\nView it here: ${shareUrl}\n\nThank you for choosing FusionZone!`;
       const customerPhone = formatPhone(order?.customerPhone || "");
       if (!customerPhone) {
         toast.error("No WhatsApp number available for this customer.");
@@ -268,7 +268,7 @@ export default function ReceiptsPage() {
             recipientEmail,
             recipientName: order.customerName,
             documentNumber: `RCP-${orderNumber.replace("DT-", "")}`,
-            subject: `Receipt for ${orderNumber} - ${settings?.storeName || "Desert Technology"}`,
+            subject: `Receipt for ${orderNumber} - ${settings?.storeName || "FusionZone"}`,
             messageBody: `Your receipt for ${orderNumber} is attached.`,
             shareUrl,
             orderSnapshot: {
@@ -299,7 +299,7 @@ export default function ReceiptsPage() {
       // Fallback: open email client with the share link
       const subject = encodeURIComponent(`Receipt for ${order.orderNumber}`);
       const body = encodeURIComponent(
-        `Hi ${order.customerName},\n\nPlease find your receipt for ${order.orderNumber} below.\n\n${shareUrl}\n\nThank you for choosing Desert Technology!`,
+        `Hi ${order.customerName},\n\nPlease find your receipt for ${order.orderNumber} below.\n\n${shareUrl}\n\nThank you for choosing FusionZone!`,
       );
       window.open(`mailto:?subject=${subject}&body=${body}`, "_blank");
     } catch (err) {

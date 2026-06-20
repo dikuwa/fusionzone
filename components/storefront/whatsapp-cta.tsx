@@ -6,7 +6,7 @@ import { useDashboardStore } from "@/lib/store/dashboard";
 
 export function WhatsAppCTA() {
   const settings = useDashboardStore((s) => s.settings);
-  const phone = settings.phone || "+264852775140";
+  const phone = settings.phone || "+264000000000";
   return (
     <section className="bg-background py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

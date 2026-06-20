@@ -14,7 +14,7 @@ Font.register({
 });
 
 const colors = {
-  primary: "#f68923",
+  primary: "#0d41e2",
   text: "#1a1a2e",
   muted: "#6b7280",
   border: "#ddd8d2",
@@ -189,9 +189,9 @@ export function ReceiptPDF({
   paymentStatus,
   totalPaidCents = 0,
   balanceDueCents = 0,
-  storeName = "Desert Technology Consultant",
+  storeName = "FusionZone",
   storeLocation = "Windhoek, Namibia",
-  storePhone = "+264 85 277 5140",
+  storePhone = "+264 00 000 0000",
   fulfillmentMethod,
   courierFeeCents,
   shipping,
@@ -210,7 +210,7 @@ export function ReceiptPDF({
             <View style={styles.brand}>
               {logoSrc && <Image src={logoSrc} style={styles.logo} />}
               <View>
-                <Text style={styles.companyName}>{storeName || "Desert Technology Consultant"}</Text>
+                <Text style={styles.companyName}>{storeName || "FusionZone"}</Text>
                 <Text style={styles.companyLine}>{storeLocation}</Text>
                 <Text style={styles.companyLine}>{storePhone}</Text>
               </View>
@@ -322,8 +322,8 @@ export function ReceiptPDF({
           </View>
 
           <View style={styles.footer}>
-            <Text style={styles.footerText}>Desert Technology Consultant - {storeLocation}</Text>
-            <Text style={styles.footerText}>sales@desertechnam.com - {storePhone}</Text>
+            <Text style={styles.footerText}>FusionZone - {storeLocation}</Text>
+            <Text style={styles.footerText}>sales@fusionzone.example - {storePhone}</Text>
           </View>
         </View>
       </Page>

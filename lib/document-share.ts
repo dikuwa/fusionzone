@@ -3,7 +3,7 @@
  * with Redis (Upstash) as a read cache for fast lookups.
  *
  * Maps short random codes to signed document tokens so that customers
- * receive compact branded URLs like https://deserttech.com/d/r8K4pQ
+ * receive compact branded URLs like https://example.com/d/r8K4pQ
  * instead of long token URLs.
  *
  * The underlying signed token (from document-tokens.ts) encodes all
@@ -264,7 +264,7 @@ function validateRecord(record: ShortLinkRecord): ResolveResult {
     return {
       ok: false,
       code: "EXPIRED",
-      message: "This document link has expired. Please contact Desert Technology for a new copy.",
+      message: "This document link has expired. Please contact FusionZone for a new copy.",
     };
   }
   if (record.revokedAt) {

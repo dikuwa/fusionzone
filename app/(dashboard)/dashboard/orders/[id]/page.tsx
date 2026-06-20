@@ -375,7 +375,7 @@ export default function OrderDetailPage() {
           recipientEmail,
           recipientName: order.customerName,
           documentNumber: `RCP-${order.orderNumber.replace("DT-", "")}`,
-          subject: `Receipt for ${order.orderNumber} - ${storeSettings?.storeName || "Desert Technology"}`,
+          subject: `Receipt for ${order.orderNumber} - ${storeSettings?.storeName || "FusionZone"}`,
           messageBody: `Please find your receipt for ${order.orderNumber} attached.`,
           shareUrl,
           orderSnapshot: {
@@ -404,7 +404,7 @@ export default function OrderDetailPage() {
           : orderIsPaidInFull
             ? "Paid in full."
             : `Payment status: ${getStatusLabel(order.paymentStatus)}`;
-        const subject = encodeURIComponent(`Receipt for ${order.orderNumber} - ${storeSettings?.storeName || "Desert Tech"}`);
+        const subject = encodeURIComponent(`Receipt for ${order.orderNumber} - ${storeSettings?.storeName || "FusionZone"}`);
         const body = encodeURIComponent(
           `Hi ${order.customerName},\n\nPlease find your receipt for ${order.orderNumber} below.\n\n${shareUrl}\n\nTotal: ${formatCents(order.subtotalCents)}\n${paymentLine}\n\nThank you for your business!`,
         );
@@ -602,7 +602,7 @@ export default function OrderDetailPage() {
                   try {
                     const shareUrl = await generateReceiptLink(order);
                     if (!shareUrl) { toast.error("Failed to generate shareable link"); return; }
-                    const msg = `Hi ${order.customerName},\n\nYour order ${order.orderNumber} has been created.\n\nView receipt: ${shareUrl}\n\nTotal: ${formatCents(order.subtotalCents)}\n\nThank you for choosing ${storeSettings?.storeName || "Desert Technology"}!`;
+                    const msg = `Hi ${order.customerName},\n\nYour order ${order.orderNumber} has been created.\n\nView receipt: ${shareUrl}\n\nTotal: ${formatCents(order.subtotalCents)}\n\nThank you for choosing ${storeSettings?.storeName || "FusionZone"}!`;
                     const a = document.createElement("a");
                     a.href = buildWhatsAppUrl(order.customerPhone, msg);
                     a.target = "_blank";

@@ -68,11 +68,11 @@ function ErrorState({ error }: { error: { code: string; message: string } }) {
           <div className="flex items-center gap-3">
             <img
               src="/images/receipt-icon.svg"
-              alt="Desert Technology"
+              alt="FusionZone"
               className="h-10 w-auto"
             />
             <span className="text-lg font-bold text-foreground">
-              Desert Technology
+              FusionZone
             </span>
           </div>
         </div>
@@ -115,9 +115,9 @@ function ErrorState({ error }: { error: { code: string; message: string } }) {
         {/* Contact info */}
         <div className="rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground">
           <p className="font-medium text-foreground mb-1">Need help?</p>
-          <p>Contact Desert Technology for assistance.</p>
+          <p>Contact FusionZone for assistance.</p>
           <p className="mt-2 text-xs">
-            Desert Technology Consultant &mdash; Windhoek, Namibia
+            FusionZone &mdash; Windhoek, Namibia
           </p>
         </div>
       </div>

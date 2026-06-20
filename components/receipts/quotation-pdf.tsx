@@ -13,7 +13,7 @@ Font.register({
 });
 
 const colors = {
-  primary: "#f68923",
+  primary: "#0d41e2",
   text: "#1a1a2e",
   muted: "#6b7280",
   border: "#ddd8d2",
@@ -172,10 +172,10 @@ export function QuotationPDF({
   subtotal,
   notes,
   status,
-  storeName = "Desert Technology Consultant",
+  storeName = "FusionZone",
   storeLocation = "Windhoek, Namibia",
-  storePhone = "+264 85 277 5140",
-  storeEmail = "sales@desertechnam.com",
+  storePhone = "+264 00 000 0000",
+  storeEmail = "sales@fusionzone.example",
   logoSrc,
 }: QuotationPDFProps) {
   return (

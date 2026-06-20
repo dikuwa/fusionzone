@@ -15,8 +15,8 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "Desert Technology Consultant",
-    template: "%s | Desert Technology Consultant",
+    default: "FusionZone",
+    template: "%s | FusionZone",
   },
   description:
     "New, pre-owned and refurbished technology products in Namibia. Apple, Windows, Gaming, CCTV, Networking, POS and more.",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     "gaming",
   ],
   icons: {
-    icon: "/images/desertech-favicon.svg",
-    shortcut: "/images/desertech-favicon.svg",
-    apple: "/images/desertech-favicon.svg",
+    icon: "/images/fusionzone-mark.svg",
+    shortcut: "/images/fusionzone-mark.svg",
+    apple: "/images/fusionzone-mark.svg",
   },
 };
 
@@ -48,7 +48,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans">
         {/* ── CSS-only initial loader — shows before React hydration ── */}
         <style
-          id="dt-initial-loader-css"
+          id="fz-initial-loader-css"
           dangerouslySetInnerHTML={{
             __html: `
 #dt-initial-loader {
@@ -70,19 +70,11 @@ export default function RootLayout({
   user-select: none;
 }
 
-#dt-initial-loader .dt-brand-desert {
+#dt-initial-loader .dt-brand-name {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--color-foreground, #1a1a1a);
-  font-family: ${spaceGrotesk.style.fontFamily};
-}
-
-#dt-initial-loader .dt-brand-tech {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--color-primary, #f68923);
   font-family: ${spaceGrotesk.style.fontFamily};
 }
 
@@ -98,7 +90,7 @@ export default function RootLayout({
   height: 100%;
   width: 100%;
   border-radius: 999px;
-  background: var(--color-primary, #f68923);
+  background: var(--color-primary, #0d41e2);
   animation: dt-loader-slide 1.4s ease-in-out infinite;
 }
 
@@ -112,8 +104,7 @@ export default function RootLayout({
         />
         <div id="dt-initial-loader">
           <div className="dt-brand">
-            <span className="dt-brand-desert">Desert</span>
-            <span className="dt-brand-tech">Tech</span>
+            <span className="dt-brand-name">FusionZone</span>
           </div>
           <div className="dt-bar-track">
             <div className="dt-bar" />

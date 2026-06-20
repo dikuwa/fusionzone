@@ -65,8 +65,8 @@ export default function ProductDetailPage() {
   }
   if (!product) notFound();
 
-  const whatsappNumber = settings.whatsapp || "264852775140";
-  const phoneNumber = settings.phone || "+264852775140";
+  const whatsappNumber = settings.whatsapp || "264000000000";
+  const phoneNumber = settings.phone || "+264000000000";
 
   const wishlisted = isWishlisted(product.id);
 
@@ -148,7 +148,7 @@ export default function ProductDetailPage() {
               })}
               className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/90 backdrop-blur-sm border border-border shadow-sm hover:shadow-md transition-all"
             >
-              <Heart className={cn("h-5 w-5", wishlisted ? "fill-[#f68923] text-[#f68923]" : "text-muted-foreground")} />
+              <Heart className={cn("h-5 w-5", wishlisted ? "fill-[#0d41e2] text-[#0d41e2]" : "text-muted-foreground")} />
             </button>
           </div>
 

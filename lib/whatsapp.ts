@@ -1,5 +1,5 @@
 /**
- * WhatsApp notification utility for Desert Tech.
+ * WhatsApp notification utility for FusionZone.
  * Sends messages via WhatsApp Business API / cloud API.
  * Falls back to console logging in development.
  */
@@ -7,7 +7,7 @@
 const WHATSAPP_API_URL = "https://graph.facebook.com/v18.0";
 const WHATSAPP_PHONE_NUMBER_ID = process.env.WHATSAPP_PHONE_NUMBER_ID || "";
 const WHATSAPP_ACCESS_TOKEN = process.env.WHATSAPP_ACCESS_TOKEN || "";
-const BUSINESS_PHONE = process.env.WHATSAPP_BUSINESS_PHONE || "264852775140";
+const BUSINESS_PHONE = process.env.WHATSAPP_BUSINESS_PHONE || "";
 
 interface WhatsAppOptions {
   to: string; // Recipient phone number (without + prefix)
@@ -76,7 +76,7 @@ export async function sendPasswordResetWhatsApp(
   const { getAppUrl } = await import("./app-url");
   const appUrl = getAppUrl();
   const resetUrl = `${appUrl}/admin/reset-password?token=${token}`;
-  const company = storeName || "Desert Technology Consultant";
+  const company = storeName || "FusionZone";
 
   const message = [
     `🔐 *${company} — Password Reset*`,
@@ -113,7 +113,7 @@ export async function sendInvitationWhatsApp(
   const appUrl = getAppUrl();
   const acceptUrl = `${appUrl}/invite/${shortCode}`;
   const roleDisplay = role.charAt(0) + role.slice(1).toLowerCase();
-  const company = storeName || "Desert Technology Consultant";
+  const company = storeName || "FusionZone";
 
   const message = [
     `🎉 *${company} — You're Invited!*`,
@@ -143,7 +143,7 @@ export async function sendAccountStatusWhatsApp(
   storeName?: string,
 ): Promise<void> {
   const isSuspended = status === "suspended";
-  const company = storeName || "Desert Technology Consultant";
+  const company = storeName || "FusionZone";
   const message = [
     `🔔 *${company} — Account ${isSuspended ? "Suspended" : "Reactivated"}*`,
     ``,

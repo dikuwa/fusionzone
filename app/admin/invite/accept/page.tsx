@@ -122,7 +122,7 @@ export default function AcceptInvitationPage() {
                 </div>
               </div>
               <h1 className="text-2xl font-bold tracking-tight text-foreground">
-                Welcome to Desert Technology!
+                Welcome to FusionZone!
               </h1>
               <p className="text-sm text-muted-foreground mt-2">
                 Your account has been created successfully. You can now sign in with your email and password.
@@ -180,8 +180,8 @@ export default function AcceptInvitationPage() {
           <div className="mb-8 text-center">
             <div className="mb-5 flex justify-center">
               <Image
-                src="/images/desertech-auth-logo.svg"
-                alt="Desert Technology Consultants"
+                src="/images/fusionzone-mark.svg"
+                alt="FusionZone"
                 width={92}
                 height={80}
                 priority

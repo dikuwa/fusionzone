@@ -72,8 +72,8 @@ export default function AdminLoginPage() {
           <div className="mb-8 text-center">
             <div className="mb-5 flex justify-center">
               <Image
-                src="/images/desertech-auth-logo.svg"
-                alt="Desert Technology Consultants"
+                src="/images/fusionzone-mark.svg"
+                alt="FusionZone"
                 width={92}
                 height={80}
                 priority
@@ -86,7 +86,7 @@ export default function AdminLoginPage() {
             <p className="text-sm text-muted-foreground mt-1">
               {requiresTwoFactor
                 ? "Enter the code from your authenticator app"
-                : "Sign in to access the Desert Technology dashboard"}
+                : "Sign in to access the FusionZone dashboard"}
             </p>
           </div>
 
@@ -110,7 +110,7 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="mt-1.5 h-11 w-full rounded-lg border border-border bg-background px-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/30"
-                placeholder="you@deserttech.com"
+                placeholder="you@fusionzone.example"
                 required
                 autoComplete="email"
                 autoFocus

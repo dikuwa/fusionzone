@@ -126,7 +126,7 @@ export function DashboardSidebar({ user }: DashboardSidebarProps) {
         {!collapsed && (
           <div className="flex items-center gap-1.5">
             <Link href="/dashboard" className="text-lg font-bold tracking-tight">
-              Desert<span className="text-primary">Tech</span>
+              Fusion<span className="text-primary">Zone</span>
             </Link>
             <a
               href="/"

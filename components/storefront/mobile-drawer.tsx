@@ -115,21 +115,21 @@ export function MobileDrawer() {
             onClick={close}
           >
             <img
-              src="/images/desert-tech-logo.svg"
-              alt="Desert Tech"
+              src="/images/fusionzone-mark.svg"
+              alt="FusionZone"
               className="h-8 w-auto"
             />
-            <span className="text-base font-bold text-foreground">DesertTech</span>
+            <span className="text-base font-bold text-foreground">FusionZone</span>
           </Link>
           <div className="flex items-center gap-1">
             <Link
               href="/wishlist"
-              className="flex items-center justify-center h-11 w-11 rounded-lg text-muted-foreground hover:text-[#f68923] hover:bg-[#f68923]/5 transition-colors relative"
+              className="flex items-center justify-center h-11 w-11 rounded-lg text-muted-foreground hover:text-[#0d41e2] hover:bg-[#0d41e2]/5 transition-colors relative"
               onClick={close}
             >
               <Heart className="h-5 w-5" />
               {wishlistCount > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-[#f68923] px-1 text-[10px] font-bold leading-none text-white ring-2 ring-[#fbf8f3]">
+                <span className="absolute -right-0.5 -top-0.5 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-[#0d41e2] px-1 text-[10px] font-bold leading-none text-white ring-2 ring-[#fbf8f3]">
                   {wishlistCount > 99 ? "99+" : wishlistCount}
                 </span>
               )}

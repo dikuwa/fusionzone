@@ -54,7 +54,7 @@ const orderSnapshotSchema = z.object({
 
 function loadPdfLogo(): string | null {
   try {
-    const logoPath = path.join(process.cwd(), "public", "images", "deserttech-logo-pdf.png");
+    const logoPath = path.join(process.cwd(), "public", "images", "fusionzone-logo-pdf.png");
     return `data:image/png;base64,${readFileSync(logoPath).toString("base64")}`;
   } catch (error) {
     console.warn("[PDF] Receipt logo unavailable; using text branding", error);

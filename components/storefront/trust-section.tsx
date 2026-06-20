@@ -32,7 +32,7 @@ export function TrustSection() {
             Built for practical buying
           </p>
           <h2 className="mt-1 text-3xl font-semibold text-foreground">
-            Why customers choose Desert Tech
+            Why customers choose FusionZone
           </h2>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">
             Electronics purchases need trust, availability and quick answers. The store experience is shaped around those basics.

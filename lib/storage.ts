@@ -49,6 +49,12 @@ export async function uploadFile(
     return uploadToR2(buffer, filename, contentType, config);
   }
 
+  if (process.env.VERCEL_ENV === "preview" || process.env.VERCEL_ENV === "production") {
+    throw new Error(
+      "FusionZone storage is not configured. Refusing to persist a file outside local development.",
+    );
+  }
+
   // Fallback: return a data URL for development
   const base64 = buffer.toString("base64");
   const dataUrl = `data:${contentType};base64,${base64}`;

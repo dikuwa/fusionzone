@@ -373,7 +373,7 @@ function QuickPermissionEditor({
 
 export function StaffList({ staff, pendingInvitations = [], currentUserRole, onUpdate }: StaffListProps) {
   const settings = useDashboardStore((s) => s.settings);
-  const storeName = settings?.storeName || "Desert Technology Consultant";
+  const storeName = settings?.storeName || "FusionZone";
   const [loadingId, setLoadingId] = useState<string | null>(null);
   const [confirmAction, setConfirmAction] = useState<{
     type: "suspend" | "activate" | "disable" | "reactivate" | "unlock" | "revoke-sessions" | "delete";

@@ -1,5 +1,5 @@
 /**
- * Better Auth configuration for Desert Tech.
+ * Better Auth configuration for FusionZone.
  * Invite-only authentication with role-based access control.
  */
 
@@ -13,12 +13,12 @@ import { UserRole, UserStatus } from "@/lib/enums";
 import { sendPasswordResetEmail } from "@/lib/email";
 import { PASSWORD_REUSE_ERROR } from "@/lib/password-policy";
 
-const productionUrl = "https://desertechnam.vercel.app";
-const baseURL = process.env.BETTER_AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || (typeof window !== "undefined" ? window.location.origin : productionUrl);
+const vercelUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined;
+const baseURL = process.env.BETTER_AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || (typeof window !== "undefined" ? window.location.origin : vercelUrl) || "http://localhost:3000";
 const trustedOrigins = Array.from(new Set([
   baseURL,
   process.env.NEXT_PUBLIC_APP_URL,
-  productionUrl,
+  vercelUrl,
   "http://localhost:3000",
   "http://localhost:3040",
 ].filter((origin): origin is string => Boolean(origin))));
@@ -99,7 +99,7 @@ export const auth = betterAuth({
 
   plugins: [
     twoFactor({
-      issuer: "Desert Technology Consultant",
+      issuer: "FusionZone",
       backupCodeOptions: { amount: 10 },
     }),
   ],

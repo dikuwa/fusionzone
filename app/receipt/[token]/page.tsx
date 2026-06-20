@@ -97,11 +97,11 @@ export default async function PublicReceiptPage({ params }: PublicReceiptPagePro
         <div className="flex items-center justify-between mb-6">
           <Link href="/" className="flex items-center gap-2">
             <img
-              src="/images/desertech-favicon.svg"
-              alt="Desert Technology"
+              src="/images/fusionzone-mark.svg"
+              alt="FusionZone"
               className="h-8 w-auto"
             />
-            <span className="text-sm font-bold text-foreground">Desert Technology</span>
+            <span className="text-sm font-bold text-foreground">FusionZone</span>
           </Link>
           <span className="rounded-md bg-primary/10 text-primary px-2.5 py-1 text-[10px] font-bold tracking-wider">
             RECEIPT
@@ -253,7 +253,7 @@ export default async function PublicReceiptPage({ params }: PublicReceiptPagePro
           </a>
           <div className="grid grid-cols-2 gap-3">
             <a
-              href={buildWhatsAppUrl(storeSettings.whatsapp, `Hi DesertTech, I'm enquiring about my order ${data.orderNumber}.`)}
+              href={buildWhatsAppUrl(storeSettings.whatsapp, `Hi FusionZone, I'm enquiring about my order ${data.orderNumber}.`)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 rounded-xl border border-whatsapp/20 bg-whatsapp-soft px-4 py-3 text-sm font-semibold text-whatsapp hover:bg-whatsapp hover:text-white transition-all"

@@ -22,20 +22,20 @@ function requirePassword(envVar: string, label: string): string {
 
 export const SYSTEM_USERS = [
   {
-    name: "Desert Technology Owner",
-    email: "owner@deserttech.com",
+    name: "FusionZone Owner",
+    email: "owner@fusionzone.example",
     passwordEnvVar: "DESERTTECH_OWNER_PASSWORD",
     role: UserRole.OWNER,
   },
   {
-    name: "Desert Technology Admin",
-    email: "admin@deserttech.com",
+    name: "FusionZone Admin",
+    email: "admin@fusionzone.example",
     passwordEnvVar: "DESERTTECH_ADMIN_PASSWORD",
     role: UserRole.ADMIN,
   },
   {
-    name: "Desert Technology Staff",
-    email: "staff@deserttech.com",
+    name: "FusionZone Staff",
+    email: "staff@fusionzone.example",
     passwordEnvVar: "DESERTTECH_STAFF_PASSWORD",
     role: UserRole.STAFF,
   },
@@ -84,6 +84,7 @@ export async function ensureSystemUsers(
         role: systemUser.role,
         status: UserStatus.ACTIVE,
         emailVerified: true,
+        mustChangePassword: true,
         permissions: DEFAULT_ROLE_PERMISSIONS[systemUser.role],
       },
     });

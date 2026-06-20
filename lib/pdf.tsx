@@ -20,7 +20,7 @@ let cachedLogo: string | null | undefined = undefined;
 function loadPdfLogo(): string | null {
   if (cachedLogo !== undefined) return cachedLogo;
   try {
-    const logoPath = path.join(process.cwd(), "public", "images", "deserttech-logo-pdf.png");
+    const logoPath = path.join(process.cwd(), "public", "images", "fusionzone-logo-pdf.png");
     cachedLogo = `data:image/png;base64,${readFileSync(logoPath).toString("base64")}`;
   } catch {
     cachedLogo = null;
