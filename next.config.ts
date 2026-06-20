@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ["bcryptjs"],
   allowedDevOrigins: ["127.0.0.1"],
   outputFileTracingIncludes: {
     "/api/receipts/generate": [
