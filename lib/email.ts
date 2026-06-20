@@ -6,6 +6,9 @@
 import { Resend } from "resend";
 
 const resendApiKey = process.env.RESEND_API_KEY;
+const productionEmailApproved = process.env.ALLOW_PRODUCTION_EMAIL === "true";
+const emailDeliveryEnabled = Boolean(resendApiKey) &&
+  (process.env.VERCEL_ENV !== "production" || productionEmailApproved);
 
 // Priority order for From address:
 // 1. RESEND_FROM_EMAIL (explicitly configured verified sender)
@@ -22,7 +25,7 @@ const withStagingPrefix = (subject: string) =>
     : `[FUSIONZONE TEST] ${subject}`;
 
 // Initialize Resend only if API key is available
-const resend = resendApiKey ? new Resend(resendApiKey) : null;
+const resend = emailDeliveryEnabled ? new Resend(resendApiKey!) : null;
 
 interface EmailOptions {
   to: string;

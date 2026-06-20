@@ -39,7 +39,7 @@ export function OrderConfirmationEmail({
           <Section style={header}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
               <Img
-                src={`${baseUrl}/images/receipt-icon.svg`}
+                src={`${baseUrl}/images/fusionzone-logo-blue.png`}
                 alt={storeName}
                 width="40"
                 height="40"

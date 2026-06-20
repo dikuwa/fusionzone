@@ -1,5 +1,5 @@
 /**
- * Proxy for Desert Tech authentication and authorization.
+ * Proxy for FusionZone authentication and authorization.
  * Protects dashboard routes and handles redirects.
  */
 

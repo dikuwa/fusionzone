@@ -541,7 +541,7 @@ export default function OrderReceiptPage() {
         <div className="px-6 py-5 border-b border-border flex items-start justify-between">
           <div className="flex items-start gap-3">
             <img
-              src="/images/receipt-icon.svg"
+              src="/images/fusionzone-logo-blue.png"
               alt="FusionZone"
               className="h-10 w-auto object-contain mt-0.5"
               onError={(e) => {

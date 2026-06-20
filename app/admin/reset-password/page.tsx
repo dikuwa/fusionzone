@@ -182,7 +182,7 @@ export default function ResetPasswordPage() {
           <div className="mb-8 text-center">
             <div className="mb-5 flex justify-center">
               <Image
-                src="/images/fusionzone-mark.svg"
+                src="/images/fusionzone-logo-blue.png"
                 alt="Dashboard"
                 width={92}
                 height={80}

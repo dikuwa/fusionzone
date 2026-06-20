@@ -55,6 +55,6 @@ export const useWishlist = create<WishlistState>()(
 
       getItemCount: () => get().items.length,
     }),
-    { name: "desert-tech-wishlist" },
+    { name: "fusionzone-wishlist" },
   ),
 );

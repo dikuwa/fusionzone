@@ -38,7 +38,7 @@ export function CatalogSync({ importLocal = false }: { importLocal?: boolean }) 
     let active = true;
     const sync = async () => {
       const state = useDashboardStore.getState();
-      const shouldImport = importLocal && !window.localStorage.getItem("desert-tech-catalog-imported-v2");
+      const shouldImport = importLocal && !window.localStorage.getItem("fusionzone-catalog-imported-v2");
       const changedCategories = state.categories.filter((category) => {
         const baseline = DEFAULT_CATEGORIES[category.slug];
         return !baseline ||
@@ -68,7 +68,7 @@ export function CatalogSync({ importLocal = false }: { importLocal?: boolean }) 
       if (!active) return;
       syncCategories(data.categories ?? []);
       syncBrands(data.brands ?? []);
-      if (shouldImport) window.localStorage.setItem("desert-tech-catalog-imported-v2", "true");
+      if (shouldImport) window.localStorage.setItem("fusionzone-catalog-imported-v2", "true");
     };
     sync().catch((error) => console.error("[catalog] Could not sync catalog", error));
     return () => { active = false; };

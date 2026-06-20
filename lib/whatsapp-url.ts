@@ -46,7 +46,7 @@ export function formatWhatsAppPhone(phone: string): string {
 export function getBusinessWhatsApp(): string {
   if (typeof window !== "undefined") {
     try {
-      const settings = localStorage.getItem("desert-tech-dashboard");
+      const settings = localStorage.getItem("fusionzone-dashboard");
       if (settings) {
         const parsed = JSON.parse(settings);
         const state = parsed.state || parsed;

@@ -71,7 +71,7 @@ export const useCart = create<CartState>()(
         get().items.reduce((sum, i) => sum + i.priceCents * i.quantity, 0),
     }),
     {
-      name: "desert-tech-cart",
+      name: "fusionzone-cart",
     },
   ),
 );

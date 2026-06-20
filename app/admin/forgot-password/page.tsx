@@ -91,7 +91,7 @@ export default function ForgotPasswordPage() {
           <div className="mb-8 text-center">
             <div className="mb-5 flex justify-center">
               <Image
-                src="/images/fusionzone-mark.svg"
+                src="/images/fusionzone-logo-blue.png"
                 alt={storeName}
                 width={92}
                 height={80}

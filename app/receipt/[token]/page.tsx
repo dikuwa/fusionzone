@@ -97,7 +97,7 @@ export default async function PublicReceiptPage({ params }: PublicReceiptPagePro
         <div className="flex items-center justify-between mb-6">
           <Link href="/" className="flex items-center gap-2">
             <img
-              src="/images/fusionzone-mark.svg"
+              src="/images/fusionzone-logo-blue.png"
               alt="FusionZone"
               className="h-8 w-auto"
             />

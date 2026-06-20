@@ -115,7 +115,7 @@ export function MobileDrawer() {
             onClick={close}
           >
             <img
-              src="/images/fusionzone-mark.svg"
+              src="/images/fusionzone-logo-blue.png"
               alt="FusionZone"
               className="h-8 w-auto"
             />

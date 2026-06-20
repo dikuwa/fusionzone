@@ -18,7 +18,7 @@ import { fadeUpVariants, motionTransition } from "@/lib/motion";
 const DEFAULT_HEADING = "Namibia&rsquo;s tech — tested, warranted, and a message away.";
 const DEFAULT_SUBHEADING =
   "Shop laptops, phones, gaming builds, CCTV, networking and POS gear with clear pricing, tested stock and direct local assistance.";
-const DEFAULT_IMAGE = "/images/fusionzone-hero.png";
+const DEFAULT_IMAGE = "/images/fusionhero-clean.webp";
 
 export function HeroSection() {
   // Read settings from the shared zustand store (persisted to localStorage).

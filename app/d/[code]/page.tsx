@@ -67,7 +67,7 @@ function ErrorState({ error }: { error: { code: string; message: string } }) {
         <div className="flex justify-center">
           <div className="flex items-center gap-3">
             <img
-              src="/images/receipt-icon.svg"
+              src="/images/fusionzone-logo-blue.png"
               alt="FusionZone"
               className="h-10 w-auto"
             />

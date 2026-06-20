@@ -26,9 +26,9 @@ export function StorefrontFooter() {
           <div>
             <div className="flex items-center gap-2.5">
               <img
-                src="/images/fusionzone-mark.svg"
+                src="/images/fusionzone-logo-white.png"
                 alt="FusionZone"
-                className="h-8 w-auto brightness-0 invert"
+                className="h-8 w-auto"
               />
               <span className="text-lg font-bold">FusionZone</span>
             </div>

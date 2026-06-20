@@ -132,7 +132,7 @@ export function DocumentPublicView({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img
-              src="/images/receipt-icon.svg"
+              src="/images/fusionzone-logo-blue.png"
               alt="FusionZone"
               className="h-9 w-auto"
               onError={(e) => {

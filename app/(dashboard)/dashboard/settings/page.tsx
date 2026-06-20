@@ -983,7 +983,7 @@ export default function SettingsPage() {
                     </p>
                     {form.heroImageUrl && !form.heroImageUrl.startsWith("/images/") && (
                       <button
-                        onClick={() => setForm((prev) => ({ ...prev, heroImageUrl: "/images/fusionzone-hero.png" }))}
+                        onClick={() => setForm((prev) => ({ ...prev, heroImageUrl: "/images/fusionhero-clean.webp" }))}
                         className="inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-destructive transition-colors"
                       >
                         <Trash2 className="h-3 w-3" />
