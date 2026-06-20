@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     "gaming",
   ],
   icons: {
-    icon: "/images/fusionzone-logo-blue.png",
-    shortcut: "/images/fusionzone-logo-blue.png",
-    apple: "/images/fusionzone-logo-blue.png",
+    icon: [{ url: "/favicon.ico?v=3", sizes: "48x48", type: "image/x-icon" }],
+    shortcut: "/favicon.ico?v=3",
+    apple: "/icon.png?v=3",
   },
 };
 
