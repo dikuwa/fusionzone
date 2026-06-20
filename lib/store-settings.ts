@@ -28,6 +28,7 @@ export interface StoreSettings {
   heroHeading: string;
   heroSubheading: string;
   heroImageUrl: string;
+  footerDescription: string;
   contactDetails: ContactDetail[];
   bankDetails: BankDetail[];
   paymentMethods: PaymentMethod[];
@@ -51,6 +52,8 @@ export const DEFAULT_STORE_SETTINGS: StoreSettings = {
   heroHeading: "",
   heroSubheading: "",
   heroImageUrl: "",
+  footerDescription:
+    "Namibia\u2019s trusted source for new, pre-owned, and refurbished technology products \u2014 laptops, phones, gaming, CCTV, networking, POS & more.",
   contactDetails: [
     { id: "cd1", type: "phone", label: "Main", value: "+264 00 000 0000", isActive: true },
     { id: "cd2", type: "whatsapp", label: "Sales", value: "264000000000", isActive: true },
@@ -85,6 +88,7 @@ export function normalizeStoreSettings(data: Partial<StoreSettings>): StoreSetti
     contactDetails: Array.isArray(data.contactDetails) ? data.contactDetails : DEFAULT_STORE_SETTINGS.contactDetails,
     bankDetails: Array.isArray(data.bankDetails) ? data.bankDetails : DEFAULT_STORE_SETTINGS.bankDetails,
     paymentMethods: Array.isArray(data.paymentMethods) ? data.paymentMethods : DEFAULT_STORE_SETTINGS.paymentMethods,
+    footerDescription: data.footerDescription ?? DEFAULT_STORE_SETTINGS.footerDescription,
     servicesPage: data.servicesPage ?? DEFAULT_STORE_SETTINGS.servicesPage,
   };
 }

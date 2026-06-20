@@ -887,6 +887,30 @@ export default function SettingsPage() {
               </div>
             </div>
 
+            {/* Footer Description */}
+            <div className="pt-4 border-t border-border">
+              <div className="flex items-center gap-2 pb-3">
+                <FileText className="h-4 w-4 text-primary" />
+                <h3 className="text-sm font-semibold text-foreground">Footer</h3>
+              </div>
+              <div>
+                <label className="text-sm font-medium text-foreground flex items-center gap-1.5">
+                  <FileText className="h-3.5 w-3.5" /> Footer Business Description
+                </label>
+                <textarea
+                  value={form.footerDescription}
+                  onChange={(e) => updateField("footerDescription", e.target.value)}
+                  rows={3}
+                  maxLength={500}
+                  placeholder="Describe your business for the footer..."
+                  className="mt-1.5 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/30"
+                />
+                <p className="mt-1 text-[10px] text-muted-foreground">
+                  {form.footerDescription?.length || 0}/500 characters. Displayed in the footer across all public pages.
+                </p>
+              </div>
+            </div>
+
             {/* Navigation Order */}
             <div className="pt-4 border-t border-border">
               <div className="flex items-center gap-2 pb-3">

@@ -5,7 +5,11 @@ import { Phone, MessageCircle, Mail, MapPin, Building2, Banknote } from "lucide-
 import { useDashboardStore } from "@/lib/store/dashboard";
 import { buildWhatsAppUrl } from "@/lib/whatsapp-url";
 
+const DEFAULT_FOOTER_DESCRIPTION =
+  "Namibia\u2019s trusted source for new, pre-owned, and refurbished technology products \u2014 laptops, phones, gaming, CCTV, networking, POS & more.";
+
 export function StorefrontFooter() {
+  const settings = useDashboardStore((s) => s.settings);
   const contactDetails = useDashboardStore((s) => s.contactDetails);
   const bankDetails = useDashboardStore((s) => s.bankDetails);
   const paymentMethods = useDashboardStore((s) => s.paymentMethods);
@@ -33,7 +37,7 @@ export function StorefrontFooter() {
               <span className="text-lg font-bold">FusionZone</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-white/70">
-              Namibia&apos;s trusted source for new, pre-owned, and refurbished technology products — laptops, phones, gaming, CCTV, networking, POS & more.
+              {settings.footerDescription || DEFAULT_FOOTER_DESCRIPTION}
             </p>
           </div>
 

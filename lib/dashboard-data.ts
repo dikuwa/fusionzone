@@ -408,6 +408,8 @@ export const storeSettings = {
   heroHeading: "Namibia&rsquo;s tech — tested, warranted, and a message away.",
   heroSubheading: "Shop laptops, phones, gaming builds, CCTV, networking and POS gear with clear pricing, tested stock and direct local assistance.",
   heroImageUrl: "/images/fusionhero-clean.webp",
+  footerDescription:
+    "Namibia\u2019s trusted source for new, pre-owned, and refurbished technology products \u2014 laptops, phones, gaming, CCTV, networking, POS & more.",
   contactDetails: [] as ContactDetail[],
   bankDetails: [] as BankDetail[],
   paymentMethods: [] as PaymentMethod[],

@@ -9,12 +9,19 @@ import { DEFAULT_ROLE_PERMISSIONS } from "@/lib/permissions";
  * The seed script no longer auto-creates these on every deployment.
  */
 
-function requirePassword(envVar: string, label: string): string {
-  const pw = process.env[envVar];
+function getPassword(envVar: string, fallbackEnvVar: string | null, label: string): string {
+  // FUSIONZONE_* takes priority
+  const pw = process.env[envVar] || (fallbackEnvVar ? process.env[fallbackEnvVar] : undefined);
   if (!pw) {
     throw new Error(
       `${envVar} is required for system user "${label}". ` +
       `Set it in .env.local or the deployment environment.`
+    );
+  }
+  if (fallbackEnvVar && process.env[fallbackEnvVar] && !process.env[envVar]) {
+    console.warn(
+      `[system-users] WARNING: Using deprecated ${fallbackEnvVar} for ${label}. ` +
+      `Rename to ${envVar}.`
     );
   }
   return pw;
@@ -24,19 +31,22 @@ export const SYSTEM_USERS = [
   {
     name: "FusionZone Owner",
     email: "owner@fusionzone.example",
-    passwordEnvVar: "DESERTTECH_OWNER_PASSWORD",
+    passwordEnvVar: "FUSIONZONE_OWNER_PASSWORD",
+    fallbackEnvVar: "DESERTTECH_OWNER_PASSWORD" as string | null,
     role: UserRole.OWNER,
   },
   {
     name: "FusionZone Admin",
     email: "admin@fusionzone.example",
-    passwordEnvVar: "DESERTTECH_ADMIN_PASSWORD",
+    passwordEnvVar: "FUSIONZONE_ADMIN_PASSWORD",
+    fallbackEnvVar: "DESERTTECH_ADMIN_PASSWORD" as string | null,
     role: UserRole.ADMIN,
   },
   {
     name: "FusionZone Staff",
     email: "staff@fusionzone.example",
-    passwordEnvVar: "DESERTTECH_STAFF_PASSWORD",
+    passwordEnvVar: "FUSIONZONE_STAFF_PASSWORD",
+    fallbackEnvVar: "DESERTTECH_STAFF_PASSWORD" as string | null,
     role: UserRole.STAFF,
   },
 ] as const;
@@ -51,7 +61,7 @@ export async function ensureSystemUsers(
   options: { resetPasswords?: boolean } = {},
 ) {
   for (const systemUser of SYSTEM_USERS) {
-    const password = requirePassword(systemUser.passwordEnvVar, systemUser.email);
+    const password = getPassword(systemUser.passwordEnvVar, systemUser.fallbackEnvVar, systemUser.email);
 
     const existingUser = await prisma.user.findUnique({
       where: { email: systemUser.email },
@@ -75,6 +85,7 @@ export async function ensureSystemUsers(
         role: systemUser.role,
         status: UserStatus.ACTIVE,
         emailVerified: true,
+        mustChangePassword: false,
         permissions: DEFAULT_ROLE_PERMISSIONS[systemUser.role],
         ...((options.resetPasswords || isLegacySeed) && { twoFactorEnabled: false }),
       },
@@ -84,7 +95,7 @@ export async function ensureSystemUsers(
         role: systemUser.role,
         status: UserStatus.ACTIVE,
         emailVerified: true,
-        mustChangePassword: true,
+        mustChangePassword: false,
         permissions: DEFAULT_ROLE_PERMISSIONS[systemUser.role],
       },
     });
