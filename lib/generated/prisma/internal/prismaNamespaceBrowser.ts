@@ -76,6 +76,7 @@ export const ModelName = {
   BackInStockRequest: 'BackInStockRequest',
   ContactMessage: 'ContactMessage',
   StoreSetting: 'StoreSetting',
+  Service: 'Service',
   DocumentShare: 'DocumentShare'
 } as const
 
@@ -489,6 +490,30 @@ export const StoreSettingScalarFieldEnum = {
 } as const
 
 export type StoreSettingScalarFieldEnum = (typeof StoreSettingScalarFieldEnum)[keyof typeof StoreSettingScalarFieldEnum]
+
+
+export const ServiceScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  icon: 'icon',
+  imageUrl: 'imageUrl',
+  sortOrder: 'sortOrder',
+  isEnabled: 'isEnabled',
+  features: 'features',
+  primaryCtaLabel: 'primaryCtaLabel',
+  primaryCtaType: 'primaryCtaType',
+  primaryCtaDest: 'primaryCtaDest',
+  primaryCtaVisible: 'primaryCtaVisible',
+  secondaryCtaLabel: 'secondaryCtaLabel',
+  secondaryCtaType: 'secondaryCtaType',
+  secondaryCtaDest: 'secondaryCtaDest',
+  secondaryCtaVisible: 'secondaryCtaVisible',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
 
 
 export const DocumentShareScalarFieldEnum = {

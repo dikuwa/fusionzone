@@ -39,11 +39,13 @@ import {
   Copy,
   AlertCircle,
   Menu,
+  Layout,
 } from "lucide-react";
 import { useDashboardStore } from "@/lib/store/dashboard";
 import { cn, decodeHTMLEntities } from "@/lib/utils";
 import type { BankDetail, ContactDetail, PaymentMethod } from "@/lib/dashboard-data";
 import { Permissions } from "@/lib/permissions";
+import { ServicesPageSettings } from "@/components/dashboard/services-page-settings";
 import {
   Select,
   SelectContent,
@@ -453,8 +455,8 @@ export default function SettingsPage() {
   // STAFF: only Account and Security (no store management)
   const userRole = userSession?.role;
   const userPermissions = userSession?.permissions ?? [];
-  type TabId = "store" | "hero" | "contact" | "banking" | "payment-methods" | "security" | "account";
-  const storeManagementTabs: TabId[] = ["store", "hero", "contact", "banking", "payment-methods"];
+  type TabId = "store" | "hero" | "contact" | "banking" | "payment-methods" | "security" | "account" | "services-page";
+  const storeManagementTabs: TabId[] = ["store", "hero", "contact", "banking", "payment-methods", "services-page"];
   const personalTabs: TabId[] = ["security", "account"];
   const allTabs: { id: TabId; label: string; icon: any }[] = [
     { id: "account", label: "Account", icon: User },
@@ -464,6 +466,7 @@ export default function SettingsPage() {
     { id: "contact", label: "Contact", icon: Phone },
     { id: "banking", label: "Banking", icon: CreditCard },
     { id: "payment-methods", label: "Payments", icon: Banknote },
+    { id: "services-page", label: "Services", icon: Layout },
   ];
   const [activeTab, setActiveTab] = useState<TabId>("account");
   const tabs = allTabs.filter((tab) => {
@@ -1751,6 +1754,11 @@ export default function SettingsPage() {
               </div>
             </div>
           </div>
+        )}
+
+        {/* === SERVICES PAGE TAB === */}
+        {activeTab === "services-page" && (
+          <ServicesPageSettings />
         )}
 
         {/* === PAYMENT METHODS TAB === */}

@@ -9,6 +9,9 @@
 
 import { db } from "@/lib/db";
 import type { BankDetail, ContactDetail, PaymentMethod } from "@/lib/dashboard-data";
+import { DEFAULT_SERVICES_PAGE_SETTINGS } from "@/lib/services";
+import type { ServicesPageSettings } from "@/lib/services";
+
 export interface StoreSettings {
   storeName: string;
   phone: string;
@@ -28,6 +31,8 @@ export interface StoreSettings {
   contactDetails: ContactDetail[];
   bankDetails: BankDetail[];
   paymentMethods: PaymentMethod[];
+  // Services Page Settings
+  servicesPage: ServicesPageSettings;
 }
 
 export const DEFAULT_STORE_SETTINGS: StoreSettings = {
@@ -58,6 +63,7 @@ export const DEFAULT_STORE_SETTINGS: StoreSettings = {
     { id: "pm2", name: "Cash at Store", type: "Cash", details: "Pay in person at our Windhoek location", isActive: true },
     { id: "pm3", name: "Phone Transfer (E-Wallet)", type: "PhoneTransfer", details: "Send via mobile money or e-wallet", instructions: "Contact us for the phone number to send to", isActive: true },
   ],
+  servicesPage: DEFAULT_SERVICES_PAGE_SETTINGS,
 };
 
 export function normalizeStoreSettings(data: Partial<StoreSettings>): StoreSettings {
@@ -79,6 +85,7 @@ export function normalizeStoreSettings(data: Partial<StoreSettings>): StoreSetti
     contactDetails: Array.isArray(data.contactDetails) ? data.contactDetails : DEFAULT_STORE_SETTINGS.contactDetails,
     bankDetails: Array.isArray(data.bankDetails) ? data.bankDetails : DEFAULT_STORE_SETTINGS.bankDetails,
     paymentMethods: Array.isArray(data.paymentMethods) ? data.paymentMethods : DEFAULT_STORE_SETTINGS.paymentMethods,
+    servicesPage: data.servicesPage ?? DEFAULT_STORE_SETTINGS.servicesPage,
   };
 }
 

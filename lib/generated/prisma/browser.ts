@@ -143,6 +143,11 @@ export type ContactMessage = Prisma.ContactMessageModel
  */
 export type StoreSetting = Prisma.StoreSettingModel
 /**
+ * Model Service
+ * 
+ */
+export type Service = Prisma.ServiceModel
+/**
  * Model DocumentShare
  * 
  */

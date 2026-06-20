@@ -409,6 +409,7 @@ export const ModelName = {
   BackInStockRequest: 'BackInStockRequest',
   ContactMessage: 'ContactMessage',
   StoreSetting: 'StoreSetting',
+  Service: 'Service',
   DocumentShare: 'DocumentShare'
 } as const
 
@@ -425,7 +426,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "twoFactor" | "session" | "account" | "verification" | "invitation" | "auditLog" | "passwordReset" | "rateLimit" | "customer" | "category" | "brand" | "product" | "productImage" | "promotion" | "promotionProduct" | "order" | "orderItem" | "paymentRecord" | "receipt" | "followUp" | "notification" | "backInStockRequest" | "contactMessage" | "storeSetting" | "documentShare"
+    modelProps: "user" | "twoFactor" | "session" | "account" | "verification" | "invitation" | "auditLog" | "passwordReset" | "rateLimit" | "customer" | "category" | "brand" | "product" | "productImage" | "promotion" | "promotionProduct" | "order" | "orderItem" | "paymentRecord" | "receipt" | "followUp" | "notification" | "backInStockRequest" | "contactMessage" | "storeSetting" | "service" | "documentShare"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2279,6 +2280,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Service: {
+      payload: Prisma.$ServicePayload<ExtArgs>
+      fields: Prisma.ServiceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ServiceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ServiceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>
+        }
+        findFirst: {
+          args: Prisma.ServiceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ServiceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>
+        }
+        findMany: {
+          args: Prisma.ServiceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>[]
+        }
+        create: {
+          args: Prisma.ServiceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>
+        }
+        createMany: {
+          args: Prisma.ServiceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ServiceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>[]
+        }
+        delete: {
+          args: Prisma.ServiceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>
+        }
+        update: {
+          args: Prisma.ServiceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>
+        }
+        deleteMany: {
+          args: Prisma.ServiceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ServiceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ServiceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>[]
+        }
+        upsert: {
+          args: Prisma.ServiceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>
+        }
+        aggregate: {
+          args: Prisma.ServiceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateService>
+        }
+        groupBy: {
+          args: Prisma.ServiceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ServiceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ServiceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ServiceCountAggregateOutputType> | number
+        }
+      }
+    }
     DocumentShare: {
       payload: Prisma.$DocumentSharePayload<ExtArgs>
       fields: Prisma.DocumentShareFieldRefs
@@ -2788,6 +2863,30 @@ export const StoreSettingScalarFieldEnum = {
 export type StoreSettingScalarFieldEnum = (typeof StoreSettingScalarFieldEnum)[keyof typeof StoreSettingScalarFieldEnum]
 
 
+export const ServiceScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  icon: 'icon',
+  imageUrl: 'imageUrl',
+  sortOrder: 'sortOrder',
+  isEnabled: 'isEnabled',
+  features: 'features',
+  primaryCtaLabel: 'primaryCtaLabel',
+  primaryCtaType: 'primaryCtaType',
+  primaryCtaDest: 'primaryCtaDest',
+  primaryCtaVisible: 'primaryCtaVisible',
+  secondaryCtaLabel: 'secondaryCtaLabel',
+  secondaryCtaType: 'secondaryCtaType',
+  secondaryCtaDest: 'secondaryCtaDest',
+  secondaryCtaVisible: 'secondaryCtaVisible',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
+
+
 export const DocumentShareScalarFieldEnum = {
   id: 'id',
   shortCode: 'shortCode',
@@ -3107,6 +3206,7 @@ export type GlobalOmitConfig = {
   backInStockRequest?: Prisma.BackInStockRequestOmit
   contactMessage?: Prisma.ContactMessageOmit
   storeSetting?: Prisma.StoreSettingOmit
+  service?: Prisma.ServiceOmit
   documentShare?: Prisma.DocumentShareOmit
 }
 

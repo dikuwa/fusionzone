@@ -52,6 +52,38 @@ const settingsSchema = z.object({
   heroSubheading: z.string().optional(),
   heroImageUrl: z.string().optional(),
   contactDetails: z.array(contactDetailSchema).max(50).optional(),
+  servicesPage: z.object({
+    header: z.object({
+      eyebrow: z.string().optional(),
+      heading: z.string().optional(),
+      description: z.string().optional(),
+    }).optional(),
+    supportCards: z.array(z.object({
+      id: z.string(),
+      title: z.string(),
+      description: z.string(),
+      icon: z.string(),
+      isEnabled: z.boolean(),
+      sortOrder: z.number(),
+    })).optional(),
+    preOwnedTech: z.object({
+      isEnabled: z.boolean().optional(),
+      title: z.string().optional(),
+      description: z.string().optional(),
+      icon: z.string().optional(),
+      features: z.array(z.string()).optional(),
+    }).optional(),
+    bottomCta: z.object({
+      heading: z.string().optional(),
+      description: z.string().optional(),
+      primaryCtaLabel: z.string().optional(),
+      primaryCtaType: z.string().optional(),
+      primaryCtaDest: z.string().nullable().optional(),
+      secondaryCtaLabel: z.string().optional(),
+      secondaryCtaType: z.string().optional(),
+      secondaryCtaDest: z.string().nullable().optional(),
+    }).optional(),
+  }).optional(),
   bankDetails: z.array(bankDetailSchema).max(20).optional(),
   paymentMethods: z.array(paymentMethodSchema).max(30).optional(),
 });
@@ -88,7 +120,7 @@ export async function POST(request: NextRequest) {
     }
 
     const before = await getStoreSettings();
-    const saved = await saveStoreSettings(parsed.data);
+    const saved = await saveStoreSettings(parsed.data as any);
     await createAuditLog({
       action: "Store settings updated",
       targetType: "settings",

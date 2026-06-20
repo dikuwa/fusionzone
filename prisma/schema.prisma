@@ -435,6 +435,34 @@ model StoreSetting {
   data String
 }
 
+// ============== SERVICES PAGE ==============
+
+model Service {
+  id              String   @id @default(cuid())
+  title           String
+  description     String
+  icon            String   @default("Wrench")
+  imageUrl        String?
+  sortOrder       Int      @default(0)
+  isEnabled       Boolean  @default(true)
+  features        Json?    // Array of feature strings
+  // Primary CTA
+  primaryCtaLabel     String  @default("Enquire Now")
+  primaryCtaType      String  @default("whatsapp")
+  primaryCtaDest      String?
+  primaryCtaVisible   Boolean @default(true)
+  // Secondary CTA
+  secondaryCtaLabel   String  @default("Call Us")
+  secondaryCtaType    String  @default("phone")
+  secondaryCtaDest    String?
+  secondaryCtaVisible Boolean @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([sortOrder])
+  @@index([isEnabled])
+}
+
 // ============== DOCUMENT SHARING ==============
 
 model DocumentShare {
