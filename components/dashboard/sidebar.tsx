@@ -37,6 +37,7 @@ const adminNavItems = [
   { href: "/dashboard/products", label: "Products", icon: Package },
   { href: "/dashboard/categories", label: "Categories & Brands", icon: FolderOpen },
   { href: "/dashboard/promotions", label: "Promotions", icon: Megaphone },
+  { href: "/dashboard/services", label: "Services", icon: FileText },
   { href: "/dashboard/customers", label: "Customers", icon: Users },
   { href: "/dashboard/follow-ups", label: "Follow-ups", icon: CalendarClock },
   { href: "/dashboard/receipts", label: "Receipts", icon: FileText },
@@ -76,6 +77,7 @@ const navPermissions: Record<string, Permission> = {
   "/dashboard/audit-log": Permissions.AUDIT_LOGS_VIEW,
   "/dashboard/payments": Permissions.PAYMENTS_VIEW,
   "/dashboard/staff": Permissions.USERS_VIEW,
+  "/dashboard/services": Permissions.SERVICES_VIEW,
   "/dashboard/settings": Permissions.SETTINGS_VIEW,
 };
 

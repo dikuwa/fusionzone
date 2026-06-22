@@ -89,6 +89,9 @@ export const Permissions = {
   NOTIFICATIONS_VIEW: "notifications:view",
   NOTIFICATIONS_MANAGE: "notifications:manage",
 
+  // Services
+  SERVICES_VIEW: "services:view",
+
   // Settings
   SETTINGS_VIEW: "settings:view",
   SETTINGS_UPDATE: "settings:update",
@@ -161,6 +164,8 @@ export const DEFAULT_ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     // Notifications
     Permissions.NOTIFICATIONS_VIEW,
     Permissions.NOTIFICATIONS_MANAGE,
+    // Services — view by default
+    Permissions.SERVICES_VIEW,
     // Settings — view only by default
     Permissions.SETTINGS_VIEW,
     // Audit Log — view only by default
@@ -184,6 +189,7 @@ export const DEFAULT_ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     Permissions.FOLLOWUPS_UPDATE,
     Permissions.STOCK_REQUESTS_VIEW,
     Permissions.NOTIFICATIONS_VIEW,
+    Permissions.SERVICES_VIEW,
     Permissions.SETTINGS_VIEW,
     // No financial/management/user permissions by default
   ],

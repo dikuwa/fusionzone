@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { getStoreSettings } from "@/lib/store-settings";
 
+export const dynamic = "force-dynamic";
+
 export default async function PrivacyPage() {
   const settings = await getStoreSettings();
   const phoneNumber = settings.phone || "+264000000000";

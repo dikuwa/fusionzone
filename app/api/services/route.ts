@@ -5,7 +5,7 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import { getServices, createService, updateService, deleteService, reorderServices, seedDefaultServices } from "@/lib/services";
+import { getServices, createService, updateService, deleteService, reorderServices } from "@/lib/services";
 import { authorizePermission } from "@/lib/auth-server";
 import { Permissions } from "@/lib/permissions";
 import { z } from "zod";
@@ -31,9 +31,6 @@ const serviceSchema = z.object({
 
 export async function GET() {
   try {
-    // Seed defaults if no services exist
-    await seedDefaultServices();
-
     const services = await getServices();
     return NextResponse.json({ success: true, services });
   } catch (error) {

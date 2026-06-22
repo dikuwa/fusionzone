@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, FileText } from "lucide-react";
 import { getStoreSettings } from "@/lib/store-settings";
 
+export const dynamic = "force-dynamic";
+
 export default async function TermsPage() {
   const settings = await getStoreSettings();
   const phoneNumber = settings.phone || "+264000000000";

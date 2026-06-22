@@ -2,6 +2,8 @@ import { getEnabledServices, getServices, DEFAULT_SERVICES_PAGE_SETTINGS } from 
 import { getStoreSettings } from "@/lib/store-settings";
 import ServicesPageClient from "./services-page-client";
 
+export const dynamic = "force-dynamic";
+
 export default async function ServicesPage() {
   const [services, settings] = await Promise.all([
     getEnabledServices(),
