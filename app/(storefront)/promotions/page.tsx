@@ -7,6 +7,7 @@ import { useDashboardStore } from "@/lib/store/dashboard";
 import { buildWhatsAppUrl } from "@/lib/whatsapp-url";
 import { fadeUpVariants, motionTransition } from "@/lib/motion";
 import { isPublicPromotion } from "@/lib/promotion-visibility";
+import { PromotionImageGallery } from "@/components/storefront/promotion-image-gallery";
 
 export default function PromotionsPage() {
   const dashboardPromotions = useDashboardStore((s) => s.promotions);
@@ -20,6 +21,7 @@ export default function PromotionsPage() {
       slug: p.slug,
       description: p.description,
       imageUrl: p.imageUrl,
+      images: p.images,
       discountLabel: p.discountLabel,
       isFeatured: p.isFeatured !== false,
       type: (p.type || "general") as "product" | "bundle" | "service" | "general",
@@ -87,20 +89,10 @@ export default function PromotionsPage() {
                 className="grid overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 sm:grid-cols-2"
               >
                 {/* Image */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-muted sm:aspect-auto sm:order-last">
-                  {promo.imageUrl ? (
-                    <img
-                      src={promo.imageUrl}
-                      alt={promo.title}
-                      className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-muted text-muted-foreground/40">
-                      <Tag className="h-8 w-8" />
-                    </div>
-                  )}
+                <div className="relative bg-muted p-1.5 sm:order-last">
+                  <PromotionImageGallery images={promo.images} imageUrl={promo.imageUrl} title={promo.title} variant="card" />
                   {promo.discountLabel && (
-                    <div className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-lg bg-primary px-2.5 py-1 text-xs font-bold text-primary-foreground shadow-sm">
+                    <div className="pointer-events-none absolute left-3 top-3 inline-flex items-center gap-1 rounded-lg bg-primary px-2.5 py-1 text-xs font-bold text-primary-foreground shadow-sm">
                       <Percent className="h-3 w-3" />
                       {promo.discountLabel}
                     </div>
@@ -170,26 +162,14 @@ export default function PromotionsPage() {
                 transition={motionTransition(false, 0.3 + idx * 0.04)}
                 className="flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0"
               >
-                <Link href={`/promotions/${promo.slug}`}>
-                <div className="relative aspect-[16/9] overflow-hidden bg-muted">
-                  {promo.imageUrl ? (
-                    <img
-                      src={promo.imageUrl}
-                      alt={promo.title}
-                      className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-muted text-muted-foreground/40">
-                      <Tag className="h-8 w-8" />
-                    </div>
-                  )}
+                <div className="relative bg-muted p-1.5">
+                  <PromotionImageGallery images={promo.images} imageUrl={promo.imageUrl} title={promo.title} variant="card" />
                   {promo.discountLabel && (
-                    <div className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-lg bg-primary px-2.5 py-1 text-xs font-bold text-primary-foreground shadow-sm">
+                    <div className="pointer-events-none absolute left-3 top-3 inline-flex items-center gap-1 rounded-lg bg-primary px-2.5 py-1 text-xs font-bold text-primary-foreground shadow-sm">
                       {promo.discountLabel}
                     </div>
                   )}
                 </div>
-                </Link>
                 <div className="flex flex-1 flex-col p-5">
                   <div className="inline-flex w-fit items-center gap-1 rounded-md bg-accent/50 px-2 py-0.5 text-[11px] font-semibold text-primary uppercase tracking-wider">
                     {promo.type === "service" ? "Service" : promo.type === "bundle" ? "Bundle" : "Offer"}

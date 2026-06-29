@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useParams, notFound } from "next/navigation";
 import {
-  ArrowLeft,
   ArrowRight,
   Percent,
   ShoppingCart,
@@ -17,13 +16,14 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useDashboardStore } from "@/lib/store/dashboard";
-import { getPromotionProducts, formatNAD, type ProductData } from "@/lib/data";
+import { getPromotionProducts, formatNAD, type ProductData, type PromotionData } from "@/lib/data";
 import { useCart } from "@/lib/store/cart";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { ProductImage } from "@/components/ui/product-image";
 import { buildWhatsAppUrl, WHATSAPP_MESSAGES } from "@/lib/whatsapp-url";
 import { isPublicPromotion } from "@/lib/promotion-visibility";
+import { PromotionImageGallery } from "@/components/storefront/promotion-image-gallery";
 
 export default function PromotionDetailPage() {
   const params = useParams();
@@ -40,12 +40,13 @@ export default function PromotionDetailPage() {
 
   if (!rawPromo || !isPublicPromotion(rawPromo)) notFound();
 
-  const promotion = {
+  const promotion: PromotionData & { images?: string[] } = {
     id: rawPromo.id,
     title: rawPromo.title,
     slug: rawPromo.slug,
     description: rawPromo.description,
     imageUrl: rawPromo.imageUrl,
+    images: rawPromo.images,
     discountLabel: rawPromo.discountLabel,
     isActive: rawPromo.isActive,
     isFeatured: rawPromo.isFeatured !== false,
@@ -57,7 +58,7 @@ export default function PromotionDetailPage() {
     ctaLabel: rawPromo.ctaLabel,
   };
 
-  const relatedProducts = getPromotionProducts(promotion as any);
+  const relatedProducts = getPromotionProducts(promotion);
   const otherPromotions = dashboardPromotions
     .filter((p) => isPublicPromotion(p) && p.id !== rawPromo.id)
     .map((p) => ({
@@ -148,19 +149,9 @@ export default function PromotionDetailPage() {
         <div>
           {/* Hero Banner */}
           <div className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-            {promotion.imageUrl ? (
-              <div className="aspect-[21/9] overflow-hidden bg-muted sm:aspect-[3/1]">
-                <img
-                  src={promotion.imageUrl}
-                  alt={promotion.title}
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-            ) : (
-              <div className="flex aspect-[3/1] items-center justify-center bg-muted text-muted-foreground/30">
-                <TypeIcon className="h-16 w-16" />
-              </div>
-            )}
+            <div className="bg-muted p-1.5">
+              <PromotionImageGallery images={promotion.images} imageUrl={promotion.imageUrl} title={promotion.title} variant="detail" />
+            </div>
 
             <div className="p-6 sm:p-8">
               <div className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-accent px-3 py-1 text-xs font-semibold text-primary">

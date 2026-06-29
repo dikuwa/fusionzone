@@ -2,10 +2,11 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronLeft, ChevronRight, ImageIcon } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useDashboardStore } from "@/lib/store/dashboard";
 import { cn } from "@/lib/utils";
 import { isPublicPromotion } from "@/lib/promotion-visibility";
+import { PromotionImageGallery } from "@/components/storefront/promotion-image-gallery";
 
 interface PromoCard {
   id: string;
@@ -13,6 +14,7 @@ interface PromoCard {
   slug: string;
   description: string;
   imageUrl?: string;
+  images?: string[];
   discountLabel?: string;
   type: string;
 }
@@ -43,62 +45,29 @@ function PromotionCard({
 }) {
   const href = getPromotionHref(promo);
   const cta = getPromotionCta(promo);
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageError, setImageError] = useState(false);
+
+  useEffect(() => {
+    onImageReady?.(promo.id);
+  }, [onImageReady, promo.id]);
 
   return (
-    <Link
-      href={href}
+    <article
       className={cn(
-        "group grid overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[0_12px_40px_rgba(0,0,0,0.035)] transition-all duration-500",
+        "group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[0_12px_40px_rgba(0,0,0,0.035)] transition-all duration-500",
         "hover:-translate-y-0.5 hover:shadow-[0_16px_45px_rgba(0,0,0,0.055)] active:translate-y-0",
-        "grid-cols-1 md:grid-cols-[2fr_3fr]",
       )}
     >
-      {/* Image - full visibility using contain, soft background */}
-      <div className="relative order-last flex h-[280px] items-center justify-center bg-muted/25 p-4 sm:h-[340px] sm:p-5 md:h-[380px] md:p-6 lg:h-[420px]">
-        {promo.imageUrl && !imageError ? (
-          <>
-            {/* Soft loading placeholder while image loads */}
-            {!imageLoaded && (
-              <div className="absolute inset-0 flex items-center justify-center bg-muted/40">
-                <ImageIcon className="h-10 w-10 text-muted-foreground/20" />
-              </div>
-            )}
-            <img
-              src={promo.imageUrl}
-              alt={promo.title}
-              className={cn(
-                "h-full w-full object-contain transition-opacity duration-500",
-                imageLoaded ? "opacity-100" : "opacity-0",
-              )}
-              onLoad={() => {
-                setImageLoaded(true);
-                onImageReady?.(promo.id);
-              }}
-              onError={() => {
-                setImageError(true);
-                onImageReady?.(promo.id);
-              }}
-            />
-          </>
-        ) : (
-          <div className="flex h-full w-full items-center justify-center bg-muted">
-            <div className="flex flex-col items-center gap-2 text-muted-foreground/40">
-              <ImageIcon className="h-10 w-10" />
-              <span className="text-xs font-medium">Image unavailable</span>
-            </div>
-          </div>
-        )}
+      <div className="relative bg-muted/25 p-1.5">
+        <PromotionImageGallery images={promo.images} imageUrl={promo.imageUrl} title={promo.title} variant="card" />
         {promo.discountLabel && (
-          <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-lg bg-primary px-2.5 py-1 text-xs font-bold text-primary-foreground shadow-sm">
+          <div className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-lg bg-primary px-2.5 py-1 text-xs font-bold text-primary-foreground shadow-sm">
             {promo.discountLabel}
           </div>
         )}
       </div>
 
       {/* Content - always visible, even if image is loading */}
-      <div className="order-first flex flex-col justify-center p-7 sm:p-9 lg:p-11">
+      <div className="flex flex-1 flex-col justify-center p-7 sm:p-9 lg:p-10">
         <div className="inline-flex w-fit items-center gap-1.5 rounded-md bg-primary/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
           {promo.type === "service" ? "Service" : "Promotion"}
         </div>
@@ -108,12 +77,12 @@ function PromotionCard({
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-3">
           {promo.description}
         </p>
-        <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all group-hover:gap-3">
+        <Link href={href} className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-primary transition-all hover:gap-3 hover:text-primary/80">
           {cta}
           <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-        </div>
+        </Link>
       </div>
-    </Link>
+    </article>
   );
 }
 
@@ -129,6 +98,7 @@ export function FeaturedPromotionsCarousel() {
       slug: p.slug,
       description: p.description,
       imageUrl: p.imageUrl,
+      images: p.images,
       discountLabel: p.discountLabel,
       type: p.type || "general",
     }));
